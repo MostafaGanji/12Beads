@@ -1,12 +1,14 @@
 import java.util.*;
 
 public class Spielbrett {
-	static int gedrueckt;
+	static int gedrueckt1;
+	static int gedrueckt2;
 	static GUI dieGUI;
 	static int[] button;
-  	static int SpielerVon1;
-  	static int SpielerVon2;
+  	static int spielerVon1;
+  	static int spielerVon2;
   	private static int[] enabln;
+  	static boolean nichtWechseln;
   
   
   public Spielbrett() {
@@ -22,14 +24,14 @@ public class Spielbrett {
     for ( int i = 13; i<25;i++) {
       button[i] = i;
       }
-    SpielerVon1 = 12;
-    SpielerVon2 = 12;
+    spielerVon1 = 12;
+    spielerVon2 = 12;
   }
   
   
   public static void spielerEins() {
     
-    enabln = new int[SpielerVon1];
+    enabln = new int[spielerVon1];
     
     for(int i = 0; i<enabln.length;i++) {
       enabln[i] = -1;
@@ -45,12 +47,19 @@ public class Spielbrett {
     }
     Buttons();
     
+    
+    int loeschen = ArtDesSprungs();
+    if (loeschen == -1) {
+    	System.out.println("Keine Figur wird geloescht!");
+    }else {
+    	SpielerLoeschen(loeschen);
+    }
   }
   
   
   public static void spielerZwei() {
     
-    enabln = new int[SpielerVon2];
+    enabln = new int[spielerVon2];
     
     for(int i = 0; i<enabln.length;i++) {
       enabln[i] = -1;
@@ -78,11 +87,10 @@ public class Spielbrett {
   
   
   public static void SprungSpieler1() {
-    gedrueckt = 0; // Button wird gedrueckt 
     button[1] = 17;
     int a;
     int b;
-    switch (gedrueckt) {
+    switch (gedrueckt1) {
     
       	case 0:
       		a = 1;
@@ -845,11 +853,11 @@ public class Spielbrett {
   }
   
   public static void SprungSpieler2() {
-	    gedrueckt = 0; // Button wird gedrueckt 
+
 	    button[1] = 17;
 	    int a;
 	    int b;
-	    switch (gedrueckt) {
+	    switch (gedrueckt1) {
 	    
 	      	case 0:
 	      		a = 1;
@@ -1608,4 +1616,486 @@ public class Spielbrett {
 	    	}
 	    
 	  }
+  
+  
+  public static int ArtDesSprungs() {
+	  
+	  int a = -1;
+	  	switch(gedrueckt1) {
+	  	
+	  		case 0:
+	  			
+	  			if (gedrueckt2 == 10) {
+	  				a = 5;
+	  				button[a] = 0;
+	  			}
+	  			
+	  			if (gedrueckt2 == 2) {
+	  				a = 1;
+		  			button[a] = 0;
+	  			}
+		  			
+	  			if (gedrueckt2 == 12) {
+	  					a = 6;
+	  					button[a] = 0;
+	  			}
+	  			break;		
+	  				
+	  		case 1:
+	  			
+	  			if (gedrueckt2 == 11) {
+	  				a = 6;
+	  				button[a] = 0;
+	  			}
+	  			
+	  			if (gedrueckt2 == 2) {
+	  				a = 1;
+		  			button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 2:
+	  			
+	  			if (gedrueckt2 == 0) {
+	  				a = 1;
+	  				button[a] = 0;
+	  			}
+	  			
+	  			if (gedrueckt2 == 4) {
+	  				a = 3;
+		  			button[a] = 0;
+	  			}
+		  			
+	  			if (gedrueckt2 == 12) {
+	  					a = 7;
+	  					button[a] = 0;
+	  			}
+	  			
+	  			if (gedrueckt2 == 10) {
+  					a = 6;
+  					button[a] = 0;
+	  			}
+	  			
+	  			if (gedrueckt2 == 14) {
+  					a = 8;
+  					button[a] = 0;
+	  			}
+	  			break;	
+	  		case 4:
+	  			
+	  			if (gedrueckt2 == 14) {
+	  				a = 9;
+	  				button[a] = 0;
+	  			}
+	  			
+	  			if (gedrueckt2 == 2) {
+	  				a = 3;
+		  			button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 5:
+	  			
+	  			if (gedrueckt2 == 15) {
+	  				a = 10;
+		  			button[a] = 0;
+	  			}
+		  			
+	  			if (gedrueckt2 == 7) {
+	  					a = 6;
+	  					button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 6:
+	  			
+	  			if (gedrueckt2 == 8) {
+	  				a = 7;
+	  				button[a] = 0;
+	  			}
+	  			
+	  			if (gedrueckt2 == 18) {
+	  				a = 12;
+		  			button[a] = 0;
+	  			}
+		  			
+	  			if (gedrueckt2 == 11) {
+	  					a = 16;
+	  					button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 7:
+	  			
+	  			if (gedrueckt2 == 5) {
+	  				a = 6;
+	  				button[a] = 0;
+	  			}
+	  			
+	  			if (gedrueckt2 == 9) {
+	  				a = 8;
+		  			button[a] = 0;
+	  			}
+		  			
+	  			if (gedrueckt2 == 17) {
+	  					a = 12;
+	  					button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 8:
+	  			
+	  			if (gedrueckt2 == 16) {
+	  				a = 12;
+	  				button[a] = 0;
+	  			}
+	  			
+	  			if (gedrueckt2 == 18) {
+	  				a = 13;
+		  			button[a] = 0;
+	  			}
+		  			
+	  			if (gedrueckt2 == 6) {
+	  					a = 7;
+	  					button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 9:
+	  			
+	  			if (gedrueckt2 == 7) {
+	  				a = 8;
+		  			button[a] = 0;
+	  			}
+		  			
+	  			if (gedrueckt2 == 19) {
+	  					a = 14;
+	  					button[a] = 0;
+	  			}
+	  			break;
+	  		
+	  		case 10:
+	  			
+	  			if (gedrueckt2 == 0) {
+	  				a = 5;
+	  				button[a] = 0;
+	  			}
+	  			
+	  			if (gedrueckt2 == 2) {
+	  				a = 6;
+		  			button[a] = 0;
+	  			}
+		  			
+	  			if (gedrueckt2 == 12) {
+	  					a = 11;
+	  					button[a] = 0;
+	  			}
+	  			
+	  			if (gedrueckt2 == 20) {
+  					a = 15;
+  					button[a] = 0;
+	  			}
+	  			
+	  			if (gedrueckt2 == 22) {
+  					a = 16;
+  					button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 11:
+	  			
+	  			if (gedrueckt2 == 1) {
+  					a = 6;
+  					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 13) {
+					a = 12;
+					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 21) {
+					a = 16;
+					button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 12:
+	  			
+	  			if (gedrueckt2 == 0) {
+  					a = 6;
+  					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 2) {
+					a = 7;
+					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 4) {
+					a = 8;
+					button[a] = 0;
+	  			}
+	  			if (gedrueckt2 == 14) {
+  					a = 13;
+  					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 24) {
+					a = 18;
+					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 22) {
+					a = 17;
+					button[a] = 0;
+	  			}
+	  			if (gedrueckt2 == 20) {
+  					a = 16;
+  					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 10) {
+					a = 11;
+					button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 13:
+	  			
+	  			if (gedrueckt2 == 3) {
+  					a = 8;
+  					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 23) {
+					a = 18;
+					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 11) {
+					a = 12;
+					button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 14:
+	  			
+	  			if (gedrueckt2 == 4) {
+  					a = 9;
+  					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 2) {
+					a = 8;
+					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 12) {
+					a = 13;
+					button[a] = 0;
+	  			}
+	  			if (gedrueckt2 == 22) {
+  					a = 18;
+  					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 24) {
+					a = 19;
+					button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 15:	  			
+	  			if (gedrueckt2 == 5) {
+					a = 10;
+					button[a] = 0;
+	  			}
+			
+	  			if (gedrueckt2 == 17) {
+	  				a = 16;
+	  				button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 16:
+	  			
+	  			if (gedrueckt2 == 8) {
+  					a = 12;
+  					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 6) {
+					a = 11;
+					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 18) {
+					a = 17;
+					button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 17:
+	  			
+	  			if (gedrueckt2 == 7) {
+  					a = 12;
+  					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 19) {
+					a = 18;
+					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 15) {
+					a = 16;
+					button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 18:
+	  			
+	  			if (gedrueckt2 == 8) {
+  					a = 13;
+  					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 16) {
+					a = 17;
+					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 6) {
+					a = 12;
+					button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 19:
+	  			
+	  			if (gedrueckt2 == 17) {
+  					a = 18;
+  					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 9) {
+					a = 14;
+					button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 20:
+	  			
+	  			if (gedrueckt2 == 10) {
+  					a = 15;
+  					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 12) {
+					a = 16;
+					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 22) {
+					a = 21;
+					button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 21:
+	  			
+	  			if (gedrueckt2 == 11) {
+  					a = 16;
+  					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 23) {
+					a = 22;
+					button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 22:
+	  			
+	  			if (gedrueckt2 == 12) {
+  					a = 17;
+  					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 10) {
+					a = 16;
+					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 14) {
+					a = 18;
+					button[a] = 0;
+	  			}
+	  			if (gedrueckt2 == 20) {
+  					a = 21;
+  					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 24) {
+					a = 23;
+					button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 23:
+	  			
+	  			if (gedrueckt2 == 13) {
+  					a = 18;
+  					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 21) {
+					a = 22;
+					button[a] = 0;
+	  			}
+	  			break;
+	  			
+	  		case 24:
+	  			
+	  			if (gedrueckt2 == 22) {
+  					a = 23;
+  					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 12) {
+					a = 18;
+					button[a] = 0;
+	  			}
+  			
+	  			if (gedrueckt2 == 14) {
+					a = 19;
+					button[a] = 0;
+	  			}
+	  			break;
+	  	}	
+
+			SpielerBewegen();
+			
+			return a;
+
+  }
+  
+  public static void SpielerBewegen() {
+		
+	button[gedrueckt2] = button[gedrueckt1];
+	button[gedrueckt1] = 0;
+	  
+  }
+  
+  public static void SpielerLoeschen(int a) {
+	  
+		if(button[a] <= 1 & button[a] >= 12) {
+				
+				spielerVon1 = -1;
+			}else {
+				spielerVon2 = -1;
+		}
+  }
 }
+
