@@ -7,782 +7,656 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 
 public class GUI extends JFrame{
-  private ImageIcon icon1 = new ImageIcon ("T:\\Klasse tgi12\\IT\\Mostafa\\SkalierteBilder\\Eine Kugel.png");
-  private ImageIcon icon2 = new ImageIcon ("T:\\Klasse tgi12\\IT\\Mostafa\\VonZuhause\\imago0134598197w.jpg");
-  private ImageIcon spielBrett = new ImageIcon("T:\\Klasse tgi12\\IT\\Mostafa\\SkalierteBilder\\spielfeld.jpg");
-  private boolean verschiebenNach[]= new boolean[25];
+  private ImageIcon icon1 = new ImageIcon ("T:\\Klasse tgi12\\IT\\Mostafa\\SkalierteBilder\\kugle-1-removebg-previewSkaliertNummero1.png");
+  private ImageIcon icon2 = new ImageIcon ("T:\\Klasse tgi12\\IT\\Mostafa\\SkalierteBilder\\Kugelllllllll (1) (2).png");
+  private ImageIcon spielBrett = new ImageIcon("T:\\Klasse tgi12\\IT\\Mostafa\\spielfeldorginal.jpg");
+  private boolean verschiebenNach[]= new boolean[25];//stellen die Buttons dar
   protected int buttonGedrueckt=0;
-  public JButton buttons[]= new JButton[25];
-  private JLabel spielsteineP1[]= new JLabel[12];
-  private JLabel spielsteineP2[]=new JLabel[12];
-  private int spielFeldP1[]= new int[25];
-  private int spielFeldP2[]= new int[25];
-  static int werIstDran;
-  private int modusNummer;
+  private JButton buttons[]= new JButton[25];
+  private JLabel spielsteineP1[]= new JLabel[12];//Spieler 1 Spielsteine
+  private JLabel spielsteineP2[]=new JLabel[12];//Spieler 2 Spielsteine
+  private int spielFeldP1[]= new int[25];// dort werden die Positionen der Spielsteine gespeichert
+  private int spielFeldP2[]= new int[25];// dort werden die Positionen der Spielsteine gespeichert
+  private JLabel spielBrettLabel=new JLabel();
+  private static int modusNummer; // zeigt an ob 1 oder 2 Spieler-Modus
+  protected int werIstDran;
+  Steuerung dieSteuerungen;
+  String spielerNamen[];
   
   //Knöpfe mit gegnerischen Spielfigur disabeln-->wenn Knopf gedrückt wurde, dann Knöpfe mit eigenen Spielfiguren disabeln.
   //Wenn ein zug gemacht wurde, andere Spieler ist dran
   
-  public GUI() {
-    //werIstDran=werDranIst;
-    //getWerIstDran();//kann die Operation nicht aufrufen
-    
-    for(int j=0;j<4;j++) {
-      spielsteineP1[j]=new JLabel(icon1);
-      spielFeldP1[j]=j+1;
-      System.out.println(spielFeldP1[j]+" 1");
-      
-    }
-    
-    for(int j=0;j<4;j++) {
-      spielsteineP2[j]= new JLabel(icon2);
-      spielFeldP2[j]=j+5;
-      System.out.println(spielFeldP2[j]+" 2");
-    }
-    
-    for(int j=0;j<25;j++) {
-      buttons[j]=new JButton();
-    }
-    
-    //spielsteineP1[1].setVisible(false);
-    //spielsteineP1[4].setVisible(false);
-    //spielsteineP1[6].setVisible(false);
-      
+  public GUI(Steuerung dieSteuerung) {
+    System.out.println("GUI AUFRUF");
+    dieSteuerungen=dieSteuerung;
+    System.out.println(modusNummer);
     
     
+    
+  
+  }
+  
+  public void getPNamen(String [] namen) {
+	    spielerNamen=namen;
+	  }
+  
+  
+  public void guiWerDranIst(int werIsssstDran) {
+	  werIstDran=werIsssstDran;
+	  
+  }
+ 
+    
+    
+    
+  
+  public static void setModusNummer(int modiNr) {
+    modusNummer=modiNr;
+    System.out.println(modusNummer);
+    
+  }
+  
+  public void zeichneGUI() {
     setVisible(true);
-    setSize(600,600);
-    getContentPane().setLayout(null);
-    
-    spielsteineP1[0].setBounds(83, 1, 50, 50);
-    getContentPane().add(spielsteineP1[0]);
-    
-    
-    
-    spielsteineP1[2].setBounds(450, 1, 50, 50);
-    getContentPane().add(spielsteineP1[1]);
-
-
-    
-    spielsteineP1[1].setBounds(270, 1, 50, 50);
-    getContentPane().add(spielsteineP1[2]);
-
-    spielsteineP1[3].setBounds(83, 125, 50, 50);
-    getContentPane().add(spielsteineP1[3]);
-    
-    
-    spielsteineP2[0].setBounds(170, 125, 50, 50);
-    getContentPane().add(spielsteineP2[0]);
-    
-    spielsteineP2[1].setBounds(270, 125, 80, 80);
-    getContentPane().add(spielsteineP2[1]);
-
-    spielsteineP2[2].setBounds(365, 125, 80, 80);
-    getContentPane().add(spielsteineP2[2]);
-    
-    spielsteineP2[3].setBounds(450, 130, 80, 80);
-    getContentPane().add(spielsteineP2[3]);
-    
-    
-    
-    if(werIstDran==1) {
-      System.out.println("-----------");
-      for(int j=0;j<8;j++) {
-        
-        if(spielFeldP2[j]>0) { //spielFeldP2[0]=1-->Button an [0] wird deaktiviert
-          buttons[spielFeldP1[j]].setEnabled(false);
-          
-          
-        }
+    setSize(900,945);
+    setTitle("");
+      getContentPane().setLayout(null);
+      System.out.println(modusNummer);
+      if(modusNummer==2) {
+        zweiSpielerModus();
         
       }
       
-      buttons[1].setBounds(90, 11, 39, 23);
+      if(modusNummer==1) {
+        einzelSpielerModus();
+        
+      }
+      validate();
+      repaint();
+  }
+  
+  public void einzelSpielerModus() {
+    
+  }
+  
+  public void zweiSpielerModus() {
+    for(int j=0;j<12;j++) {
+        spielsteineP1[j]=new JLabel(icon1);
+        spielFeldP1[j]=j+1;
+        
+      }
+      
+      for(int j=0;j<12;j++) {
+        spielsteineP2[j]= new JLabel(icon2);
+        spielFeldP2[j]=j+5;
+
+      }
+      
+      for(int j=0;j<25;j++) {
+        buttons[j]=new JButton();
+      }
+      
+      buttons[0].setBounds(90, 90, 60, 60);
+      getContentPane().add(buttons[0]);
+      buttons[0].setContentAreaFilled(false);
+      buttons[0].setBorder(null);
+      
+      buttons[1].setBounds(256, 94, 60, 60);
       getContentPane().add(buttons[1]);
       buttons[1].setContentAreaFilled(false);
       buttons[1].setBorder(null);
-      buttons[1].addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          
-          
-          if(buttonGedrueckt==0) {
-            verschiebenNach[spielFeldP1[0]]= true;    
-          }
-          
-          
-          
-          if(buttonGedrueckt==1) {
-            for(int j=0;j<25;j++) {
-              if(verschiebenNach[j]==true) {
-                spielsteineP1[j].setBounds(90,11,50,50);
-                verschiebenNach[j]=false;
-                spielFeldP1[0]=j;
-                
-                
-              }
-            }
-            buttonGedrueckt=-1;
-
-            
-          }
-          buttonGedrueckt++;
-          System.out.println(buttonGedrueckt);
-            
-        
-              
-          
-        }
-      });
       
-      
-      buttons[2].setBounds(276, 11, 39, 23);
+      buttons[2].setBounds(420, 94, 60, 60);
       getContentPane().add(buttons[2]);
       buttons[2].setContentAreaFilled(false);
       buttons[2].setBorder(null);
-      buttons[2].addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          System.out.println("2");
-           
-          if(buttonGedrueckt==0) {
-            verschiebenNach[spielFeldP1[1]]= true;
-                      
-          }
-          
-          if(buttonGedrueckt==1) {
-            for(int j=0;j<25;j++) {
-              if(verschiebenNach[j]==true) {
-                spielsteineP1[j].setBounds(276,11,50,50);
-                verschiebenNach[j]=false;
-                spielFeldP1[1]=j;
-                
-                
-                
-              }
-            }
-            buttonGedrueckt=-1;
-          }
-          buttonGedrueckt++;
-          System.out.println(buttonGedrueckt);
-
-          
-          
-          
-          
-          
-          
-        }
-      });
       
       
-      buttons[3].setBounds(460, 11, 39, 23);
+      buttons[3].setBounds(587, 90, 60, 60);
       getContentPane().add(buttons[3]);
       buttons[3].setContentAreaFilled(false);
       buttons[3].setBorder(null);
-      buttons[3].addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          System.out.println("3");
-        
-          if(buttonGedrueckt==0) {
-            verschiebenNach[spielFeldP1[2]]= true;
-                      
-          }
-          
-          if(buttonGedrueckt==1) {
-            for(int j=0;j<25;j++) {
-              if(verschiebenNach[j]==true) {
-                spielsteineP1[j].setBounds(460,11,50,50);
-                verschiebenNach[j]=false;
-                spielFeldP1[2]=j;
-                
-                
-              }
-            }
-            buttonGedrueckt=-1;
-          }
-          buttonGedrueckt++;
-          System.out.println(buttonGedrueckt);
-
-          
-          
-          
-          
-          
-          
-        }
-      });
       
-      buttons[4].setBounds(90, 148, 39, 23);
+      buttons[4].setBounds(760, 90, 60, 60);
       getContentPane().add(buttons[4]);
       buttons[4].setContentAreaFilled(false);
       buttons[4].setBorder(null);
-      buttons[4].addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          System.out.println("4");
-          
-          if(buttonGedrueckt==0) {
-            verschiebenNach[spielFeldP1[3]]= true;
-                      
-          }
-          
-          if(buttonGedrueckt==1) {
-            for(int j=0;j<25;j++) {
-              if(verschiebenNach[j]==true) {
-                spielsteineP1[j].setBounds(90,148,50,50);
-                verschiebenNach[j]=false;
-                spielFeldP1[3]=j;
-                
-                
-              }
-            }
-            buttonGedrueckt=-1;
-          }
-          buttonGedrueckt++;
-          System.out.println(buttonGedrueckt);
-
-          
-          
-          
-          
-          
-          
-        }
-      });
       
-      buttons[5].setBounds(178, 148, 39, 23);
+      buttons[5].setBounds(90, 250, 60, 60);
       getContentPane().add(buttons[5]);
       buttons[5].setContentAreaFilled(false);
       buttons[5].setBorder(null);
-      buttons[5].addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          System.out.println("5");
-          
-          if(buttonGedrueckt==0) {
-            verschiebenNach[spielFeldP1[4]]= true;
-                      
-          }
-          
-          if(buttonGedrueckt==1) {
-            for(int j=0;j<25;j++) {
-              if(verschiebenNach[j]==true) {// der j Stein wird verschoben
-                spielsteineP1[j].setBounds(178,148,50,50);
-                verschiebenNach[j]=false;
-                spielFeldP1[4]=j;//spielFeldP1[x] gibt den button an, j gibt die Figur an
-                
-                
-              }
-            }
-            buttonGedrueckt=-1;
-          }
-          buttonGedrueckt++;
-          System.out.println(buttonGedrueckt);
-          for(int j=0;j<8;j++) {
-            
-          }
-
-          
-          
-          
-          
-          
-          
-        }
-      });
       
-      
-      
-      
-      
-      
-      
-      buttons[6].setBounds(276, 148, 39, 23);
+      buttons[6].setBounds(257,260, 60, 60);
       getContentPane().add(buttons[6]);
       buttons[6].setContentAreaFilled(false);
       buttons[6].setBorder(null);
-      buttons[6].addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          System.out.println("6");
-          
-          if(buttonGedrueckt==0) {
-            verschiebenNach[spielFeldP1[5]]= true;
-                      
-          }
-          
-          if(buttonGedrueckt==1) {
-            for(int j=0;j<25;j++) {
-              if(verschiebenNach[j]==true) {
-                spielsteineP1[j].setBounds(276,148,50,50);
-                verschiebenNach[j]=false;
-                spielFeldP1[5]=j;
-                
-                
-              }
-            }
-            buttonGedrueckt=-1;
-          }
-          buttonGedrueckt++;
-          System.out.println(buttonGedrueckt);
-
-          
-          
-          
-          
-          
-          
-        }
-      });
       
-      buttons[7].setBounds(370, 148, 39, 23);
+      buttons[7].setBounds(420, 260, 60, 60);
       getContentPane().add(buttons[7]);
       buttons[7].setContentAreaFilled(false);
       buttons[7].setBorder(null);
-      buttons[7].addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          System.out.println("7");
-          
-          if(buttonGedrueckt==0) {
-            verschiebenNach[spielFeldP1[6]]= true;
-                      
-          }
-          
-          if(buttonGedrueckt==1) {
-            for(int j=0;j<25;j++) {
-              if(verschiebenNach[j]==true) {
-                spielsteineP1[j].setBounds(370,148,50,50);
-                verschiebenNach[j]=false;
-                spielFeldP1[6]=j;
-                
-                
-              }
-            }
-            buttonGedrueckt=-1;
-          }
-          buttonGedrueckt++;
-          System.out.println(buttonGedrueckt);
-
-          
-          
-          
-          
-          
-          
-        }
-      });
       
-      
-      
-      
-      
-      buttons[8].setBounds(460, 148, 39, 23);
+      buttons[8].setBounds(587, 260, 60, 60);
       getContentPane().add(buttons[8]);
       buttons[8].setContentAreaFilled(false);
       buttons[8].setBorder(null);
-      buttons[8].addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          System.out.println("8");
-          
-          if(buttonGedrueckt==0) {
-            verschiebenNach[spielFeldP1[7]]= true;
-                      
-          }
-          
-          if(buttonGedrueckt==1) {
-            for(int j=0;j<25;j++) {
-              if(verschiebenNach[j]==true) {
-                spielsteineP1[j].setBounds(460,148,50,50);
-                verschiebenNach[j]=false;
-                spielFeldP1[7]=j;
-                
-                
-              }
-            }
-            buttonGedrueckt=-1;
-          }
-          buttonGedrueckt++;
-          System.out.println(buttonGedrueckt);
+      
+      buttons[9].setBounds(760, 260, 60, 60);
+      getContentPane().add(buttons[9]);
+      buttons[9].setContentAreaFilled(false);
+      buttons[9].setBorder(null);
+      
+      buttons[10].setBounds(90, 418, 60, 60);
+      getContentPane().add(buttons[10]);
+      buttons[10].setContentAreaFilled(false);
+      buttons[10].setBorder(null);
+      
+      buttons[11].setBounds(255, 425, 60, 60);
+      getContentPane().add(buttons[11]);
+      buttons[11].setContentAreaFilled(false);
+      buttons[11].setBorder(null);
+      
+      buttons[12].setBounds(425, 425, 60, 60);
+      getContentPane().add(buttons[12]);
+      buttons[12].setContentAreaFilled(false);
+      buttons[12].setBorder(null);
+      
+      buttons[13].setBounds(590,425, 60, 60);
+      getContentPane().add(buttons[13]);
+      buttons[13].setContentAreaFilled(false);
+      buttons[13].setBorder(null);
+      
+      buttons[14].setBounds(755,425, 60, 60);
+      getContentPane().add(buttons[14]);
+      buttons[14].setContentAreaFilled(false);
+      buttons[14].setBorder(null);
+      
+      buttons[15].setBounds(90, 580, 60, 60);
+      getContentPane().add(buttons[15]);
+      buttons[15].setContentAreaFilled(false);
+      buttons[15].setBorder(null);
+      
+      buttons[16].setBounds(255, 585, 60, 60);
+      getContentPane().add(buttons[16]);
+      buttons[16].setContentAreaFilled(false);
+      buttons[16].setBorder(null);
+      
+      buttons[17].setBounds(422, 588, 60, 60);
+      getContentPane().add(buttons[17]);
+      buttons[17].setContentAreaFilled(false);
+      buttons[17].setBorder(null);
+      
+      buttons[18].setBounds(588, 588, 60, 60);
+      getContentPane().add(buttons[18]);
+      buttons[18].setContentAreaFilled(false);
+      buttons[18].setBorder(null);
+      
+      buttons[19].setBounds(755, 588, 60, 60);
+      getContentPane().add(buttons[19]);
+      buttons[19].setContentAreaFilled(false);
+      buttons[19].setBorder(null);
+      
+      buttons[20].setBounds(93, 734, 60, 60);
+      getContentPane().add(buttons[20]);
+      buttons[20].setContentAreaFilled(false);
+      buttons[20].setBorder(null);
+      
+      buttons[21].setBounds(255, 745, 60, 60);
+      getContentPane().add(buttons[21]);
+      buttons[21].setContentAreaFilled(false);
+      buttons[21].setBorder(null);
+      
+      buttons[22].setBounds(422, 745, 60, 60);
+      getContentPane().add(buttons[22]);
+      buttons[22].setContentAreaFilled(false);
+      buttons[22].setBorder(null);
+      
+      buttons[23].setBounds(588, 745, 60, 60);
+      getContentPane().add(buttons[23]);
+      buttons[23].setContentAreaFilled(false);
+      buttons[23].setBorder(null);
+      
+      buttons[24].setBounds(750, 745, 60, 60);
+      getContentPane().add(buttons[24]);
+      buttons[24].setContentAreaFilled(false);
+      buttons[24].setBorder(null);
 
-          
-          
-          
-          
-          
-          
-        }
-      });
+      
+      spielsteineP1[0].setBounds(47, 54, 200, 200);
+      getContentPane().add(spielsteineP1[0]);
       
       
+      spielsteineP1[1].setBounds(215, 60, 200, 200);
+      getContentPane().add(spielsteineP1[1]);
+      
+      spielsteineP1[2].setBounds(380, 60, 200, 200);
+      getContentPane().add(spielsteineP1[2]);
+
+      spielsteineP1[3].setBounds(547, 60, 200, 200);
+      getContentPane().add(spielsteineP1[3]);
+      
+      spielsteineP1[4].setBounds(715, 60, 200, 200);
+      getContentPane().add(spielsteineP1[4]);
+      
+      spielsteineP1[5].setBounds(49, 220, 200, 200);
+      getContentPane().add(spielsteineP1[5]);
+      
+      spielsteineP1[6].setBounds(215, 227, 200, 200);
+      getContentPane().add(spielsteineP1[6]);
       
       
+      spielsteineP1[7].setBounds(380, 230, 200, 200);
+      getContentPane().add(spielsteineP1[7]);
       
-      JLabel lblNewLabel = new JLabel(spielBrett);
-      lblNewLabel.setBounds(0, 0, 584, 561);
-      getContentPane().add(lblNewLabel);
-      repaint();
+      spielsteineP1[8].setBounds(547, 230, 200, 200);
+      getContentPane().add(spielsteineP1[8]);
+
+      spielsteineP1[9].setBounds(715, 230, 200, 200);
+      getContentPane().add(spielsteineP1[9]);
       
-      for(int j=0;j<8;j++) {
+      spielsteineP1[10].setBounds(49, 385, 200, 200);
+      getContentPane().add(spielsteineP1[10]);
+      
+      spielsteineP1[11].setBounds(215, 390, 200, 200);
+      getContentPane().add(spielsteineP1[11]);
+      
+      
+      spielsteineP2[0].setBounds(520, 357, 200, 200);
+      getContentPane().add(spielsteineP2[0]);
+      
+      
+      spielsteineP2[1].setBounds(682, 357, 200, 200);
+      getContentPane().add(spielsteineP2[1]);
+
+      spielsteineP2[2].setBounds(23, 512, 200, 200);
+      getContentPane().add(spielsteineP2[2]);
+      
+      spielsteineP2[3].setBounds(188, 520, 200, 200);
+      getContentPane().add(spielsteineP2[3]);
+      
+      spielsteineP2[4].setBounds(352, 520, 200, 200);
+      getContentPane().add(spielsteineP2[4]);
+      
+      
+      spielsteineP2[5].setBounds(517, 520, 200, 200);
+      getContentPane().add(spielsteineP2[5]);
+
+      spielsteineP2[6].setBounds(686, 520, 200, 200);
+      getContentPane().add(spielsteineP2[6]);
+      
+      spielsteineP2[7].setBounds(25, 665, 200, 200);
+      getContentPane().add(spielsteineP2[7]);
+      
+      spielsteineP2[8].setBounds(188, 677, 200, 200);
+      getContentPane().add(spielsteineP2[8]);
+      
+      
+      spielsteineP2[9].setBounds(352, 675, 200, 200);
+      getContentPane().add(spielsteineP2[9]);
+
+      spielsteineP2[10].setBounds(517, 675, 200, 200);
+      getContentPane().add(spielsteineP2[10]);
+      
+      spielsteineP2[11].setBounds(680, 675, 200, 200);
+      getContentPane().add(spielsteineP2[11]);
+      
+      spielBrettLabel = new JLabel(spielBrett);       
+      spielBrettLabel.setBounds(-50, -48, 1000, 1000);
+      getContentPane().add(spielBrettLabel);
+      
+      
+      if(werIstDran==0) {
+    	  
+    	  buttons[0].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[0]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP1[j].setBounds(47, 54, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[1].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[1]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP1[j].setBounds(215, 60, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+    	  
+    	  buttons[2].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[2]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP1[j].setBounds(47, 54, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[3].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[3]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP1[j].setBounds(47, 54, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[4].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[4]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP1[j].setBounds(47, 54, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[5].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[5]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP1[j].setBounds(49, 220, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[6].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[6]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP1[j].setBounds(47, 54, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[7].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[7]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP1[j].setBounds(47, 54, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[8].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[8]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP1[j].setBounds(47, 54, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[9].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[9]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP1[j].setBounds(47, 54, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[10].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[10]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP1[j].setBounds(47, 54, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[11].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[11]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP1[j].setBounds(47, 54, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[12].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP1[j].setBounds(47, 54, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+    	  
+    	  
+
         
-        System.out.println(spielFeldP2[j]);
-        if(spielFeldP2[j]>0) { //spielFeldP2[0]=1-->Button an [0] wird deaktiviert
-          buttons[spielFeldP1[j]].setEnabled(true);
-          
-          
-        }
-        
+    
+    
+  }
+      
+      if(werIstDran==1) {
+    	  
       }
       
     }
-    
   
-  if(werIstDran==2) {
-    System.out.println("-----------");
-    
-    for(int j=0;j<8;j++) {
-      System.out.println(spielFeldP2[j]+"  2");
-      if(spielFeldP1[j]>0) {
-        buttons[spielFeldP1[j]].setEnabled(false);
-      }
-    }
-    
-    
-    buttons[1].setBounds(90, 11, 39, 23);
-    getContentPane().add(buttons[1]);
-    buttons[1].setContentAreaFilled(false);
-    buttons[1].setBorder(null);
-    buttons[1].addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        System.out.println("1");
-         
-        
-        if(buttonGedrueckt==0) {
-          verschiebenNach[spielFeldP2[0]]= true;    
-        }
-        
-        
-        
-        if(buttonGedrueckt==1) {
-          for(int j=0;j<25;j++) {
-            if(verschiebenNach[j]==true) {
-              spielsteineP2[j].setBounds(90,11,50,50);
-              verschiebenNach[j]=false;
-              spielFeldP2[0]=j;
-              
-              
-            }
-          }
-          buttonGedrueckt=-1;
-
-          
-        }
-        buttonGedrueckt++;
-        System.out.println(buttonGedrueckt);
-          
-      
-            
-        
-      }
-    });
-    
-    buttons[2].setBounds(276, 11, 39, 23);
-    getContentPane().add(buttons[2]);
-    buttons[2].setContentAreaFilled(false);
-    buttons[2].setBorder(null);
-    buttons[2].addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        System.out.println("2");
-         
-        if(buttonGedrueckt==0) {
-          verschiebenNach[spielFeldP2[1]]= true;
-                    
-        }
-        
-        if(buttonGedrueckt==1) {
-          for(int j=0;j<25;j++) {
-            if(verschiebenNach[j]==true) {
-              spielsteineP2[j].setBounds(276,11,50,50);
-              verschiebenNach[j]=false;
-              spielFeldP2[1]=j;
-              
-              
-              
-            }
-          }
-          buttonGedrueckt=-1;
-        }
-        buttonGedrueckt++;
-        System.out.println(buttonGedrueckt);
-
-        
-        
-        
-        
-        
-        
-      }
-    });
-    
-    
-    buttons[3].setBounds(460, 11, 39, 23);
-    getContentPane().add(buttons[3]);
-    buttons[3].setContentAreaFilled(false);
-    buttons[3].setBorder(null);
-    buttons[3].addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        System.out.println("3");
-      
-        if(buttonGedrueckt==0) {
-          verschiebenNach[spielFeldP2[2]]= true;
-                    
-        }
-        
-        if(buttonGedrueckt==1) {
-          for(int j=0;j<25;j++) {
-            if(verschiebenNach[j]==true) {
-              spielsteineP2[j].setBounds(460,11,50,50);
-              verschiebenNach[j]=false;
-              spielFeldP2[2]=j;
-              
-              
-            }
-          }
-          buttonGedrueckt=-1;
-        }
-        buttonGedrueckt++;
-        System.out.println(buttonGedrueckt);
-
-        
-        
-        
-        
-        
-        
-      }
-    });
-    
-    buttons[4].setBounds(90, 148, 39, 23);
-    getContentPane().add(buttons[4]);
-    buttons[4].setContentAreaFilled(false);
-    buttons[4].setBorder(null);
-    buttons[4].addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        System.out.println("4");
-        
-        if(buttonGedrueckt==0) {
-          verschiebenNach[spielFeldP2[3]]= true;
-                    
-        }
-        
-        if(buttonGedrueckt==1) {
-          for(int j=0;j<25;j++) {
-            if(verschiebenNach[j]==true) {
-              spielsteineP2[j].setBounds(90,148,50,50);
-              verschiebenNach[j]=false;
-              spielFeldP2[3]=j;
-              
-              
-            }
-          }
-          buttonGedrueckt=-1;
-        }
-        buttonGedrueckt++;
-        System.out.println(buttonGedrueckt);
-
-        
-        
-        
-        
-        
-        
-      }
-    });
-    
-    buttons[5].setBounds(178, 148, 39, 23);
-    getContentPane().add(buttons[5]);
-    buttons[5].setContentAreaFilled(false);
-    buttons[5].setBorder(null);
-    buttons[5].addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        System.out.println("5");
-        
-        if(buttonGedrueckt==0) {
-          verschiebenNach[spielFeldP2[4]]= true;
-                    
-        }
-        
-        if(buttonGedrueckt==1) {
-          for(int j=0;j<25;j++) {
-            if(verschiebenNach[j]==true) {// der j Stein wird verschoben
-              spielsteineP2[j].setBounds(178,148,50,50);
-              verschiebenNach[j]=false;
-              spielFeldP2[4]=j;
-              
-              
-            }
-          }
-          buttonGedrueckt=-1;
-        }
-        buttonGedrueckt++;
-        System.out.println(buttonGedrueckt);
-        for(int j=0;j<8;j++) {
-          
-        }
-
-        
-        
-        
-        
-        
-        
-      }
-    });
-    
-    
-    
-    
-    
-    
-    
-    buttons[6].setBounds(276, 148, 39, 23);
-    getContentPane().add(buttons[6]);
-    buttons[6].setContentAreaFilled(false);
-    buttons[6].setBorder(null);
-    buttons[6].addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        System.out.println("6");
-        
-        if(buttonGedrueckt==0) {
-          verschiebenNach[spielFeldP2[5]]= true;
-                    
-        }
-        
-        if(buttonGedrueckt==1) {
-          for(int j=0;j<25;j++) {
-            if(verschiebenNach[j]==true) {
-              spielsteineP2[j].setBounds(276,148,50,50);
-              verschiebenNach[j]=false;
-              spielFeldP2[5]=j;
-              
-              
-            }
-          }
-          buttonGedrueckt=-1;
-        }
-        buttonGedrueckt++;
-        System.out.println(buttonGedrueckt);
-
-        
-        
-        
-        
-        
-        
-      }
-    });
-    
-    buttons[7].setBounds(370, 148, 39, 23);
-    getContentPane().add(buttons[7]);
-    buttons[7].setContentAreaFilled(false);
-    buttons[7].setBorder(null);
-    buttons[7].addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        System.out.println("7");
-        
-        if(buttonGedrueckt==0) {
-          verschiebenNach[spielFeldP2[6]]= true;
-                    
-        }
-        
-        if(buttonGedrueckt==1) {
-          for(int j=0;j<25;j++) {
-            if(verschiebenNach[j]==true) {
-              spielsteineP2[j].setBounds(370,148,50,50);
-              verschiebenNach[j]=false;
-              spielFeldP2[6]=j;
-              
-              
-            }
-          }
-          buttonGedrueckt=-1;
-        }
-        buttonGedrueckt++;
-        System.out.println(buttonGedrueckt);
-
-        
-        
-        
-        
-        
-        
-      }
-    });
-    
-    
-    
-    
-    buttons[8].setBounds(460, 148, 39, 23);
-    getContentPane().add(buttons[8]);
-    buttons[8].setContentAreaFilled(false);
-    buttons[8].setBorder(null);
-    buttons[8].addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        System.out.println("8");
-        
-        if(buttonGedrueckt==0) {
-          verschiebenNach[spielFeldP2[7]]= true;
-                    
-        }
-        
-        if(buttonGedrueckt==1) {
-          for(int j=0;j<25;j++) {
-            if(verschiebenNach[j]==true) {
-              spielsteineP2[j].setBounds(460,148,50,50);
-              verschiebenNach[j]=false;
-              spielFeldP2[7]=j;
-              
-              
-            }
-          }
-          buttonGedrueckt=-1;
-        }
-        buttonGedrueckt++;
-        System.out.println(buttonGedrueckt);
-
-        
-        
-        
-        
-        
-        
-      }
-    });
-    
-    
-    
-    
-    JLabel lblNewLabel = new JLabel(spielBrett);
-    lblNewLabel.setBounds(0, 0, 584, 561);
-    getContentPane().add(lblNewLabel);
-    repaint();
-    
-    for(int j=0;j<8;j++) {
-      System.out.println(spielFeldP2[j]+"  2");
-      if(spielFeldP1[j]>0) {
-        buttons[spielFeldP1[j]].setEnabled(true);
-      }
-    }
-    
-  }
-  
-  }
-  
-  public void getWerIstDran(int werDranIst) {
-    werIstDran=werDranIst;
-    
-    
-    
-  }
-  
-  public void setModusNummer(int modiNr) {
-    modusNummer=modiNr;
-    
-  }
-      
-    }
+}
