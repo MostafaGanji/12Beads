@@ -1,0 +1,95 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Scanner;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.*;
+
+public class Namen extends JFrame {
+
+
+  
+  public Namen() {
+	  Steuerung dieSteuerung = new Steuerung();
+    
+    validate();
+    repaint();
+    JFrame frame =  new JFrame();
+  
+    JPanel panel = new JPanel(); 
+    frame.setResizable(false);
+    
+    frame.setSize(350,350);
+    frame.setLocationRelativeTo(null);
+    setLayout(new FlowLayout());
+    
+    int x = frame.getSize().width;
+    int y = frame.getSize().height;
+    
+    
+    JLabel player1 = new JLabel("player one: ");
+    player1.setBounds((int) x*1,(int) (y*0.1), 200, 200);
+    
+    panel.add(player1);
+    
+    
+    JTextField player_one =  new JTextField(20);
+    player_one.setSize(100, 100);
+    
+    panel.add(player_one);
+    
+    
+    JLabel player2 = new JLabel("player two: ");
+    player2.setBounds((int) (x*0.4),(int) (y*0.3), 400, 400);
+    
+    
+    panel.add(player2);
+    
+    JTextField player_two =  new JTextField(20);
+    
+
+    player_two.setSize(100, 100);
+    panel.add(player_two);
+    
+    JButton finish= new JButton("Weiter");
+    finish.setBounds((int) (x*0.4),(int) (y*0.3) , 100, 50);
+    finish.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+              dieSteuerung.getNamen(player_one.getText(), player_two.getText());
+              this.dispose();
+              
+              
+              
+              
+            }
+
+			private void dispose() {
+				// TODO Auto-generated method stub
+				
+			}
+            });
+    
+              
+    
+    finish.setVisible(true);
+    
+
+    frame.add(finish);
+    frame.add(panel);
+    frame.setVisible(true);
+    panel.add(finish);
+    
+    
+    
+
+  }
+}
+
+
