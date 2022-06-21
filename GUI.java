@@ -373,7 +373,7 @@ public class GUI extends JFrame{
   				if(buttonGedrueckt==1){
   					for(int j=0;j<25;j++) {
   						if(verschiebenNach[j]==true) {
-  							spielsteineP1[j].setBounds(47, 54, 200, 200);
+  							spielsteineP1[j].setBounds(380, 60, 200, 200);
   							verschiebenNach[j]=false;
   						}
   					}
@@ -399,7 +399,7 @@ public class GUI extends JFrame{
   				if(buttonGedrueckt==1){
   					for(int j=0;j<25;j++) {
   						if(verschiebenNach[j]==true) {
-  							spielsteineP1[j].setBounds(47, 54, 200, 200);
+  							spielsteineP1[j].setBounds(547, 60, 200, 200);
   							verschiebenNach[j]=false;
   						}
   					}
@@ -425,7 +425,7 @@ public class GUI extends JFrame{
   				if(buttonGedrueckt==1){
   					for(int j=0;j<25;j++) {
   						if(verschiebenNach[j]==true) {
-  							spielsteineP1[j].setBounds(47, 54, 200, 200);
+  							spielsteineP1[j].setBounds(715, 60, 200, 200);
   							verschiebenNach[j]=false;
   						}
   					}
@@ -477,7 +477,7 @@ public class GUI extends JFrame{
   				if(buttonGedrueckt==1){
   					for(int j=0;j<25;j++) {
   						if(verschiebenNach[j]==true) {
-  							spielsteineP1[j].setBounds(47, 54, 200, 200);
+  							spielsteineP1[j].setBounds(215, 227, 200, 200);
   							verschiebenNach[j]=false;
   						}
   					}
@@ -503,7 +503,7 @@ public class GUI extends JFrame{
   				if(buttonGedrueckt==1){
   					for(int j=0;j<25;j++) {
   						if(verschiebenNach[j]==true) {
-  							spielsteineP1[j].setBounds(47, 54, 200, 200);
+  							spielsteineP1[j].setBounds(380, 230, 200, 200);
   							verschiebenNach[j]=false;
   						}
   					}
@@ -529,7 +529,7 @@ public class GUI extends JFrame{
   				if(buttonGedrueckt==1){
   					for(int j=0;j<25;j++) {
   						if(verschiebenNach[j]==true) {
-  							spielsteineP1[j].setBounds(47, 54, 200, 200);
+  							spielsteineP1[j].setBounds(547, 230, 200, 200);
   							verschiebenNach[j]=false;
   						}
   					}
@@ -555,7 +555,7 @@ public class GUI extends JFrame{
   				if(buttonGedrueckt==1){
   					for(int j=0;j<25;j++) {
   						if(verschiebenNach[j]==true) {
-  							spielsteineP1[j].setBounds(47, 54, 200, 200);
+  							spielsteineP1[j].setBounds(715, 230, 200, 200);
   							verschiebenNach[j]=false;
   						}
   					}
@@ -581,7 +581,7 @@ public class GUI extends JFrame{
   				if(buttonGedrueckt==1){
   					for(int j=0;j<25;j++) {
   						if(verschiebenNach[j]==true) {
-  							spielsteineP1[j].setBounds(47, 54, 200, 200);
+  							spielsteineP1[j].setBounds(49, 385, 200, 200);
   							verschiebenNach[j]=false;
   						}
   					}
@@ -607,7 +607,7 @@ public class GUI extends JFrame{
   				if(buttonGedrueckt==1){
   					for(int j=0;j<25;j++) {
   						if(verschiebenNach[j]==true) {
-  							spielsteineP1[j].setBounds(47, 54, 200, 200);
+  							spielsteineP1[j].setBounds(215, 390, 200, 200);
   							verschiebenNach[j]=false;
   						}
   					}
@@ -633,7 +633,369 @@ public class GUI extends JFrame{
     				if(buttonGedrueckt==1){
     					for(int j=0;j<25;j++) {
     						if(verschiebenNach[j]==true) {
-    							spielsteineP1[j].setBounds(47, 54, 200, 200);
+    							spielsteineP1[j].setBounds(520, 357, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[13].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP1[j].setBounds(520, 357, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[14].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP1[j].setBounds(682, 357, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[15].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP1[j].setBounds(23, 512, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[16].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP1[j].setBounds(188, 520, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[17].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP1[j].setBounds(352, 520, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[18].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP1[j].setBounds(517, 520, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[19].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP1[j].setBounds(686, 520, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[20].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP1[j].setBounds(25, 665, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[21].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP1[j].setBounds(188, 677, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[22].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP1[j].setBounds(352, 675, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[23].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP1[j].setBounds(517, 675, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	      	       buttons[24].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP1[j].setBounds(680, 675, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       
+
+    	  
+    	  
+
+        
+    
+    
+  }
+      
+      if(werIstDran==1) {
+	         	  buttons[0].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[0]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP2[j].setBounds(47, 54, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[1].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[1]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP2[j].setBounds(215, 60, 200, 200);
     							verschiebenNach[j]=false;
     						}
     					}
@@ -646,14 +1008,591 @@ public class GUI extends JFrame{
 
     		});
     	  
-    	  
+    	  buttons[2].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[2]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP2[j].setBounds(380, 60, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
 
-        
-    
-    
-  }
-      
-      if(werIstDran==1) {
+  		});
+    	  
+    	  buttons[3].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[3]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP2[j].setBounds(547, 60, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[4].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[4]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP2[j].setBounds(715, 60, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[5].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[5]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP2[j].setBounds(49, 220, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[6].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[6]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP2[j].setBounds(215, 227, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[7].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[7]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP2[j].setBounds(380, 230, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[8].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[8]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP2[j].setBounds(547, 230, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[9].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[9]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP2[j].setBounds(715, 230, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[10].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[10]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP2[j].setBounds(49, 385, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[11].addActionListener(new ActionListener() {
+  			public void actionPerformed(ActionEvent e) {
+  	
+  				if(buttonGedrueckt==0) {
+  					verschiebenNach[11]=true;
+  					
+  					
+  					
+  				}
+  				
+  				if(buttonGedrueckt==1){
+  					for(int j=0;j<25;j++) {
+  						if(verschiebenNach[j]==true) {
+  							spielsteineP2[j].setBounds(215, 390, 200, 200);
+  							verschiebenNach[j]=false;
+  						}
+  					}
+  					buttonGedrueckt=-1;
+  				}
+  				buttonGedrueckt++;
+  				
+  				
+  			}
+
+  		});
+    	  
+    	  buttons[12].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP2[j].setBounds(520, 357, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[13].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP2[j].setBounds(520, 357, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[14].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP2[j].setBounds(682, 357, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[15].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP2[j].setBounds(23, 512, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[16].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP2[j].setBounds(188, 520, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[17].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP2[j].setBounds(352, 520, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[18].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP2[j].setBounds(517, 520, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[19].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP2[j].setBounds(686, 520, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[20].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP2[j].setBounds(25, 665, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[21].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP2[j].setBounds(188, 677, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[22].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP2[j].setBounds(352, 675, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	       buttons[23].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP2[j].setBounds(517, 675, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
+	      	       buttons[24].addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    	
+    				if(buttonGedrueckt==0) {
+    					verschiebenNach[12]=true;
+    					
+    					
+    					
+    				}
+    				
+    				if(buttonGedrueckt==1){
+    					for(int j=0;j<25;j++) {
+    						if(verschiebenNach[j]==true) {
+    							spielsteineP2[j].setBounds(680, 675, 200, 200);
+    							verschiebenNach[j]=false;
+    						}
+    					}
+    					buttonGedrueckt=-1;
+    				}
+    				buttonGedrueckt++;
+    				
+    				
+    			}
+
+    		});
     	  
       }
       
