@@ -1,98 +1,112 @@
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.JLabel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class Menue extends JFrame{
-  private JTextField Text1;
-  private JTextField Text2;
-  protected int nummer;
-  Steuerung dieSteuerung;
-  private JTextField Text3;
-  
-  public Menue(Steuerung pSteuerung) {
-    dieSteuerung= pSteuerung;
-    getContentPane().setLayout(null);
-    setVisible(true);
-    setSize(500,400);
-    
-    Text1 = new JTextField();
-    Text1.setText("     1-Spieler-Modus");
-    Text1.setBounds(317, 55, 115, 41);
-    getContentPane().add(Text1);
-    Text1.setColumns(10);
-    
-    Text2 = new JTextField();
-    Text2.setText("   2-Spieler-Modus");
-    Text2.setBounds(42, 55, 115, 41);
-    getContentPane().add(Text2);
-    Text2.setColumns(10);
-    
-    JButton Knopf1 = new JButton("");
-    Knopf1.setBounds(343, 117, 72, 23);
-    getContentPane().add(Knopf1);
-    Knopf1.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        
-        nummer=1;
-        
-        
-        
-      }
-    });
-    
-    
-    JButton Knopf2 = new JButton("");
-    Knopf2.setBounds(65, 117, 72, 23);
-    getContentPane().add(Knopf2);
-    Knopf2.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        
-        
-        nummer=2;
-        
-        
-        
-        
-      }
-    });
-    
-    
-    JButton StartButton = new JButton("Start");
-    StartButton.setBounds(199, 162, 89, 41);
-    getContentPane().add(StartButton);
-    
-    Text3 = new JTextField();
-    Text3.setText("W\u00E4hlen sie einen Spielmodus aus");
-    Text3.setBounds(148, 24, 174, 20);
-    getContentPane().add(Text3);
-    Text3.setColumns(10);
-    StartButton.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        dieSteuerung.setModusNummer(nummer);
-        
-        this.dispose();
-        
-        
+	private JTextField Text1;
+	private JTextField Text2;
+	protected int nummer;
+	Steuerung dieSteuerung;
+	 ImageIcon menueDesign = new ImageIcon ("T:\\Klasse tgi12\\IT\\Mostafa\\SkalierteBilder\\Start Seite.jpg");
+	private JLabel menueLabel=new JLabel();
+	
+	public Menue(Steuerung pSteuerung) {
+		
+		dieSteuerung= pSteuerung;
+		getContentPane().setLayout(null);
+		setVisible(true);
+		setSize(850,870);
+		setTitle("12 Beads Menü");
+		
+		
+		JButton Knopf1 = new JButton("");
+		Knopf1.setBounds(310, 350, 280, 117);
+		getContentPane().add(Knopf1);
+		Knopf1.setContentAreaFilled(false);
+	    Knopf1.setBorder(null);
+		
+		JButton Knopf2 = new JButton("");
+		Knopf2.setBounds(310, 525, 280, 117);
+		getContentPane().add(Knopf2);
+		Knopf2.setContentAreaFilled(false);
+	    Knopf2.setBorder(null);
+		
+		JButton exitButton = new JButton("");
+		exitButton.setBounds(337, 720, 225, 100);
+		getContentPane().add(exitButton);
+		exitButton.setContentAreaFilled(false);
+	    exitButton.setBorder(null);
+		
+		JLabel menueLabel= new JLabel(menueDesign);
+		menueLabel.setBounds(0, 0, 900, 900);
+	    getContentPane().add(menueLabel);
+	    menueLabel.setVisible(true);
+		
+		
+		
+		Knopf1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				nummer=1;
+				this.dispose();
+				dieSteuerung.setModusNummer(nummer);
+				
+				
+				
+				
+				
+				
+			}
 
-        
-        
-        
-      }
+			private void dispose() {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		Knopf2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				nummer=2;
+				this.dispose();
+				dieSteuerung.setModusNummer(nummer);
+				dieSteuerung.init();
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			}
 
-      private void dispose() {
-        // TODO Auto-generated method stub
-        
-      }
-    });
-    validate();
-    repaint();
-    
-    
-    
-  }
+			private void dispose() {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		exitButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+	
+				System.exit(0);
+				
+			}
+
+		});
+		
+		
+		validate();
+		repaint();
+		
+		
+		
+	}
 
 }
