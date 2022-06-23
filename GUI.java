@@ -5,6 +5,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import font.java.awt.*;
 
 public class GUI extends JFrame{
   private ImageIcon icon1 = new ImageIcon ("T:\\Klasse tgi12\\IT\\Mostafa\\SkalierteBilder\\kugle-1-removebg-previewSkaliertNummero1.png");
