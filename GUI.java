@@ -96,17 +96,19 @@ public class GUI extends JFrame{
         buttons[j]=new JButton();
       }
       
-      spielerNamen[0].setBounds(600, -20, 100, 100);
+      Font nameFont = new Font("serif", Font.BOLD + Font.ITALIC,31);
+      
+      spielerNamen[0].setBounds(500, -20, 180, 100);
 
-      spielerNamen[0].setFont(getFont());
+      spielerNamen[0].setFont(nameFont);
 
       getContentPane().add(spielerNamen[0]);
 
       
 
-      spielerNamen[1].setBounds(600, 815, 100, 100);
+      spielerNamen[1].setBounds(520, 820, 180, 100);
 
-      spielerNamen[1].setFont(getFont());
+      spielerNamen[1].setFont(nameFont);
 
       getContentPane().add(spielerNamen[1]);
 
