@@ -12,7 +12,7 @@ public class GUI extends JFrame{
   private ImageIcon spielBrett = new ImageIcon("T:\\Klasse tgi12\\IT\\Mostafa\\spielfeldorginal.jpg");
   private boolean verschiebenNach[]= new boolean[25];//stellen die Buttons dar
   protected int buttonGedrueckt=0;
-  private JButton buttons[]= new JButton[25];
+  JButton buttons[]= new JButton[25];
   private JLabel spielsteineP1[]= new JLabel[12];//Spieler 1 Spielsteine
   private JLabel spielsteineP2[]=new JLabel[12];//Spieler 2 Spielsteine
   private int spielFeldP1[]= new int[25];// dort werden die Positionen der Spielsteine gespeichert
@@ -21,23 +21,23 @@ public class GUI extends JFrame{
   private static int modusNummer; // zeigt an ob 1 oder 2 Spieler-Modus
   protected int werIstDran;
   Steuerung dieSteuerungen;
-  String spielerNamen[];
+  JLabel [] spielerNamen=new JLabel[2];
   
   //Knöpfe mit gegnerischen Spielfigur disabeln-->wenn Knopf gedrückt wurde, dann Knöpfe mit eigenen Spielfiguren disabeln.
   //Wenn ein zug gemacht wurde, andere Spieler ist dran
   
-  public GUI(Steuerung dieSteuerung) {
+  public GUI(Steuerung pSteuerung) {
     System.out.println("GUI AUFRUF");
-    dieSteuerungen=dieSteuerung;
     System.out.println(modusNummer);
-    
+    dieSteuerungen = pSteuerung;
     
     
   
   }
   
   public void getPNamen(String [] namen) {
-	    spielerNamen=namen;
+	  spielerNamen[0]=new JLabel(namen[0]);
+	  spielerNamen[1]= new JLabel(namen[1]);
 	  }
   
   
@@ -52,7 +52,7 @@ public class GUI extends JFrame{
   
   public static void setModusNummer(int modiNr) {
     modusNummer=modiNr;
-    System.out.println(modusNummer);
+    System.out.println("Das ist die Modusnummer"+modusNummer);
     
   }
   
@@ -96,130 +96,145 @@ public class GUI extends JFrame{
         buttons[j]=new JButton();
       }
       
+      spielerNamen[0].setBounds(600, -20, 100, 100);
+
+      spielerNamen[0].setFont(getFont());
+
+      getContentPane().add(spielerNamen[0]);
+
+      
+
+      spielerNamen[1].setBounds(600, 815, 100, 100);
+
+      spielerNamen[1].setFont(getFont());
+
+      getContentPane().add(spielerNamen[1]);
+
+      
       buttons[0].setBounds(90, 90, 60, 60);
       getContentPane().add(buttons[0]);
-      buttons[0].setContentAreaFilled(false);
+      buttons[0].setContentAreaFilled(true);
       buttons[0].setBorder(null);
       
       buttons[1].setBounds(256, 94, 60, 60);
       getContentPane().add(buttons[1]);
-      buttons[1].setContentAreaFilled(false);
+      buttons[1].setContentAreaFilled(true);
       buttons[1].setBorder(null);
       
       buttons[2].setBounds(420, 94, 60, 60);
       getContentPane().add(buttons[2]);
-      buttons[2].setContentAreaFilled(false);
+      buttons[2].setContentAreaFilled(true);
       buttons[2].setBorder(null);
       
       
       buttons[3].setBounds(587, 90, 60, 60);
       getContentPane().add(buttons[3]);
-      buttons[3].setContentAreaFilled(false);
+      buttons[3].setContentAreaFilled(true);
       buttons[3].setBorder(null);
       
       buttons[4].setBounds(760, 90, 60, 60);
       getContentPane().add(buttons[4]);
-      buttons[4].setContentAreaFilled(false);
+      buttons[4].setContentAreaFilled(true);
       buttons[4].setBorder(null);
       
       buttons[5].setBounds(90, 250, 60, 60);
       getContentPane().add(buttons[5]);
-      buttons[5].setContentAreaFilled(false);
+      buttons[5].setContentAreaFilled(true);
       buttons[5].setBorder(null);
       
       buttons[6].setBounds(257,260, 60, 60);
       getContentPane().add(buttons[6]);
-      buttons[6].setContentAreaFilled(false);
+      buttons[6].setContentAreaFilled(true);
       buttons[6].setBorder(null);
       
       buttons[7].setBounds(420, 260, 60, 60);
       getContentPane().add(buttons[7]);
-      buttons[7].setContentAreaFilled(false);
+      buttons[7].setContentAreaFilled(true);
       buttons[7].setBorder(null);
       
       buttons[8].setBounds(587, 260, 60, 60);
       getContentPane().add(buttons[8]);
-      buttons[8].setContentAreaFilled(false);
+      buttons[8].setContentAreaFilled(true);
       buttons[8].setBorder(null);
       
       buttons[9].setBounds(760, 260, 60, 60);
       getContentPane().add(buttons[9]);
-      buttons[9].setContentAreaFilled(false);
+      buttons[9].setContentAreaFilled(true);
       buttons[9].setBorder(null);
       
       buttons[10].setBounds(90, 418, 60, 60);
       getContentPane().add(buttons[10]);
-      buttons[10].setContentAreaFilled(false);
+      buttons[10].setContentAreaFilled(true);
       buttons[10].setBorder(null);
       
       buttons[11].setBounds(255, 425, 60, 60);
       getContentPane().add(buttons[11]);
-      buttons[11].setContentAreaFilled(false);
+      buttons[11].setContentAreaFilled(true);
       buttons[11].setBorder(null);
       
       buttons[12].setBounds(425, 425, 60, 60);
       getContentPane().add(buttons[12]);
-      buttons[12].setContentAreaFilled(false);
+      buttons[12].setContentAreaFilled(true);
       buttons[12].setBorder(null);
       
       buttons[13].setBounds(590,425, 60, 60);
       getContentPane().add(buttons[13]);
-      buttons[13].setContentAreaFilled(false);
+      buttons[13].setContentAreaFilled(true);
       buttons[13].setBorder(null);
       
       buttons[14].setBounds(755,425, 60, 60);
       getContentPane().add(buttons[14]);
-      buttons[14].setContentAreaFilled(false);
+      buttons[14].setContentAreaFilled(true);
       buttons[14].setBorder(null);
       
       buttons[15].setBounds(90, 580, 60, 60);
       getContentPane().add(buttons[15]);
-      buttons[15].setContentAreaFilled(false);
+      buttons[15].setContentAreaFilled(true);
       buttons[15].setBorder(null);
       
       buttons[16].setBounds(255, 585, 60, 60);
       getContentPane().add(buttons[16]);
-      buttons[16].setContentAreaFilled(false);
+      buttons[16].setContentAreaFilled(true);
       buttons[16].setBorder(null);
       
       buttons[17].setBounds(422, 588, 60, 60);
       getContentPane().add(buttons[17]);
-      buttons[17].setContentAreaFilled(false);
+      buttons[17].setContentAreaFilled(true);
       buttons[17].setBorder(null);
       
       buttons[18].setBounds(588, 588, 60, 60);
       getContentPane().add(buttons[18]);
-      buttons[18].setContentAreaFilled(false);
+      buttons[18].setContentAreaFilled(true);
       buttons[18].setBorder(null);
       
       buttons[19].setBounds(755, 588, 60, 60);
       getContentPane().add(buttons[19]);
-      buttons[19].setContentAreaFilled(false);
+      buttons[19].setContentAreaFilled(true);
       buttons[19].setBorder(null);
       
       buttons[20].setBounds(93, 734, 60, 60);
       getContentPane().add(buttons[20]);
-      buttons[20].setContentAreaFilled(false);
+      buttons[20].setContentAreaFilled(true);
       buttons[20].setBorder(null);
       
       buttons[21].setBounds(255, 745, 60, 60);
       getContentPane().add(buttons[21]);
-      buttons[21].setContentAreaFilled(false);
+      buttons[21].setContentAreaFilled(true);
       buttons[21].setBorder(null);
       
       buttons[22].setBounds(422, 745, 60, 60);
       getContentPane().add(buttons[22]);
-      buttons[22].setContentAreaFilled(false);
+      buttons[22].setContentAreaFilled(true);
       buttons[22].setBorder(null);
       
       buttons[23].setBounds(588, 745, 60, 60);
       getContentPane().add(buttons[23]);
-      buttons[23].setContentAreaFilled(false);
+      buttons[23].setContentAreaFilled(true);
       buttons[23].setBorder(null);
       
       buttons[24].setBounds(750, 745, 60, 60);
       getContentPane().add(buttons[24]);
-      buttons[24].setContentAreaFilled(false);
+      buttons[24].setContentAreaFilled(true);
       buttons[24].setBorder(null);
 
       
@@ -306,7 +321,7 @@ public class GUI extends JFrame{
       getContentPane().add(spielBrettLabel);
       
       
-      if(werIstDran==0) {
+      if(werIstDran==1) {
     	  
     	  buttons[0].addActionListener(new ActionListener() {
   			public void actionPerformed(ActionEvent e) {
@@ -955,7 +970,7 @@ public class GUI extends JFrame{
     
   }
       
-      if(werIstDran==1) {
+      if(werIstDran==2) {
 	         	  buttons[0].addActionListener(new ActionListener() {
   			public void actionPerformed(ActionEvent e) {
   	
