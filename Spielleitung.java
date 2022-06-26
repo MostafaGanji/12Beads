@@ -4,10 +4,11 @@ import java.util.*;
 public class Spielleitung {
 
 static int aktiverSpieler;
-Steuerung steuerung= new Steuerung();
+Steuerung steuerung;
   
 
-public Spielleitung() {
+public Spielleitung(Steuerung pSteuerung) {
+	steuerung = pSteuerung;
   WerIstDran();
   
   
@@ -25,36 +26,23 @@ public static int random() {
   }
 
 
-public static void Spieler() {
-
-  switch(aktiverSpieler) {
-  case 0: 
-    aktiverSpieler = 1;
-    break;
-  
-  case 1: 
-    aktiverSpieler = 0;
-    break;
-    }
-  }
-
 public void WerIstDran() {
-  
-  aktiverSpieler = random();
+	
+	aktiverSpieler = random();
 
-    switch (aktiverSpieler) {
-      case 1 :
-        System.out.println("Spieler 1 ist dran");
-        // Button 0-12 enabln
-        break;
-        
-      case 0 :
-        System.out.println("Spieler 2 ist dran");
-        // Button 13-24 enabln
-        break;
-      }
-    System.out.println("Aktiver Spieler"+aktiverSpieler);
-    //steuerung.getWerDranIst(aktiverSpieler);
+	  switch (aktiverSpieler) {
+	    case 1 :
+	      System.out.println("Spieler 1 ist dran");
+	      // Button 0-12 enabln
+	      break;
+	      
+	    case 0 :
+	      System.out.println("Spieler 2 ist dran");
+	      // Button 13-24 enabln
+	      break;
+	    }
+	  System.out.println("Spielleitung "+aktiverSpieler);
+	  steuerung.getWerDranIst(aktiverSpieler);
 }
 
 
