@@ -1,0 +1,90 @@
+import java.util.Scanner;
+
+import javax.swing.JButton;
+
+public class Steuerung {
+  static int modusNr;
+  static Spielleitung leitung;
+  Menue dasMenue;
+  GUI dieGUI;
+  Namen namenDigital;
+  String namensen[]= new String[2];
+  Spielbrett brett;
+
+  public Steuerung() {
+
+      dasMenue=new Menue(this);
+      dieGUI = new GUI(this);
+      leitung=new Spielleitung(this);
+      this.setModusNummer(dasMenue.nummer);
+      brett= new Spielbrett(dieGUI);
+      running();
+
+
+  }
+
+  public void knopfGedruecktFuerBrett(int zahl) {
+
+      for(int j=0;j<25;j++) {
+            dieGUI.buttons[j].setEnabled(false);
+          }
+
+      switch(leitung.aktiverSpieler) {
+      case 1:
+          brett.getGedrueckt1(zahl);
+          brett.SprungSpieler1();
+         break;
+      case 2:
+          brett.getGedrueckt1(zahl);
+          brett.SprungSpieler2();
+
+
+      }
+      }
+
+
+
+  public void running() {
+
+      if (leitung.aktiverSpieler == 1) {
+          brett.spielerEins();
+      }else {
+          brett.spielerZwei();
+      }
+  }
+
+  public static void main (String[]ars) {
+    Steuerung dieSteuerung = new Steuerung();
+
+
+  }
+
+  public void getWerDranIst(int werDranIst) {
+      System.out.println("Es ist Spieler"+werDranIst+"dran");
+      dieGUI.guiWerDranIst(werDranIst);
+  }
+
+
+  public void setModusNummer(int nummer) {
+
+    modusNr= nummer;
+    dieGUI.setModusNummer(modusNr);
+    if(modusNr==2) {
+        namenDigital= new Namen(this,dieGUI);
+
+    }
+
+  }
+
+  public void getNamen(String name1, String name2){
+
+       namensen[0]= name1;
+       namensen[1]= name2;
+        dieGUI.getPNamen(namensen);
+
+
+
+
+
+      }
+}
