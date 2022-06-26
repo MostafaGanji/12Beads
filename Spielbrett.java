@@ -1,6 +1,8 @@
 import java.util.*;
+import javax.swing.*;
 
-public class Spielbrett {
+
+public class Spielbrett extends JFrame {
 	static int gedrueckt1;
 	static int gedrueckt2;
 	static GUI dieGUI;
@@ -9,11 +11,12 @@ public class Spielbrett {
   	static int spielerVon2;
   	private static int[] enabln;
   	static boolean nichtWechseln;
+  	
   
   
-  public Spielbrett() {
+  public Spielbrett(GUI pGUI) {
+	  dieGUI=pGUI;
     
-    dieGUI = new GUI();
     button = new int[25];
     for (int i = 0;i<12;i++) {
       button[i] = i+1;
@@ -22,6 +25,7 @@ public class Spielbrett {
     button[12] = 0; // Zahl im Array = Zahl der Spielfigur von 1-24 Bsp.: Button [0] = Figur 1
   
     for ( int i = 13; i<25;i++) {
+    	
       button[i] = i;
       }
     spielerVon1 = 12;
@@ -30,6 +34,7 @@ public class Spielbrett {
   
   
   public static void spielerEins() {
+	  System.out.println("In spieler EINS");
     
     enabln = new int[spielerVon1];
     
@@ -58,6 +63,7 @@ public class Spielbrett {
   
   
   public static void spielerZwei() {
+	  System.out.println("In spieler ZWEI");
     
     enabln = new int[spielerVon2];
     
@@ -70,7 +76,6 @@ public class Spielbrett {
   
       if (button[i]<= 24 & button[i]>=13) {
         enabln[k]= i;
-        System.out.println(enabln[k]);
         k++;
       }
     }
@@ -84,6 +89,12 @@ public class Spielbrett {
     dieGUI.buttons[enabln[i]].setEnabled(true);
     }
   }
+  
+  public void getGedrueckt1(int zahl) {
+	  gedrueckt1=zahl;
+	  
+  }
+  
   
   
   public static void SprungSpieler1() {
@@ -2098,4 +2109,5 @@ public class Spielbrett {
 		}
   }
 }
+
 
