@@ -64,7 +64,7 @@ public class GUI extends JFrame{
       getContentPane().setLayout(null);
       System.out.println(modusNummer);
       if(modusNummer==2) {
-        zweiSpielerModus();
+        zweiSpielerModus(); 
         
       }
       
