@@ -98,6 +98,7 @@ public class Spielbrett extends JFrame {
   
   
   public static void SprungSpieler1() {
+	  System.out.println("Spielbrett erster SPieler turn");
     button[1] = 17;
     int a;
     int b;
@@ -130,6 +131,7 @@ public class Spielbrett extends JFrame {
       				dieGUI.buttons[b].setEnabled(true); 
       			}
       		}
+      		dieGUI.turn1player();
       		break;
       	case 1:
       		if (button[0] == 0) {
@@ -153,6 +155,7 @@ public class Spielbrett extends JFrame {
       				dieGUI.buttons[b].setEnabled(true); 
       			}
       		}
+      		dieGUI.turn1player();
       		break;
       	case 2:
       		a = 1;
@@ -186,6 +189,7 @@ public class Spielbrett extends JFrame {
       				}
       			}
       		}
+      		dieGUI.turn1player();
       		break;
       	case 3:
       		a = 2;
@@ -209,6 +213,7 @@ public class Spielbrett extends JFrame {
       				dieGUI.buttons[b].setEnabled(true); 
       			}
       		}
+      		dieGUI.turn1player();
       		break;
       	case 4:
       		a = 3;
@@ -238,6 +243,7 @@ public class Spielbrett extends JFrame {
       				dieGUI.buttons[b].setEnabled(true); 
       			}
       		}
+      		dieGUI.turn1player();
       		break;
       	case 5:
       		if (button[0] == 0) {
@@ -261,6 +267,7 @@ public class Spielbrett extends JFrame {
       				dieGUI.buttons[b].setEnabled(true); 
       			}
       		}
+      		dieGUI.turn1player();
       		break;
       	case 6:
       		for(a = 0;a<=a+2;a++) {
@@ -292,6 +299,7 @@ public class Spielbrett extends JFrame {
       				}
       			}
       		}
+      		dieGUI.turn1player();
       		break;
       	case 7:
       		if (button[2] == 0) {
@@ -324,6 +332,7 @@ public class Spielbrett extends JFrame {
       				dieGUI.buttons[b].setEnabled(true); 
       			}
       		}
+      		dieGUI.turn1player();
       		break;
       	case 8:
       		a = 7;
@@ -355,6 +364,7 @@ public class Spielbrett extends JFrame {
           		dieGUI.buttons[i].setEnabled(true);
           		}
       		}
+      		dieGUI.turn1player();
       		break;
       	case 9:
       		if (button[4] == 0) {
@@ -378,6 +388,7 @@ public class Spielbrett extends JFrame {
       				dieGUI.buttons[b].setEnabled(true); 
       			}
       		}
+      		dieGUI.turn1player();
       		break;
       	case 10:
       		a = 5;
@@ -425,7 +436,7 @@ public class Spielbrett extends JFrame {
       				dieGUI.buttons[b].setEnabled(true); 
       			}
       		}
-
+      		dieGUI.turn1player();
       		break;
       	case 11:
       		a = 6;
@@ -458,6 +469,7 @@ public class Spielbrett extends JFrame {
       		if (button[10] == 0) {
       			dieGUI.buttons[10].setEnabled(true);
       		}
+      		dieGUI.turn1player();
       		break;
       	case 12:
       		a = 11;
@@ -502,6 +514,7 @@ public class Spielbrett extends JFrame {
       				}
       			}
       		}
+      		dieGUI.turn1player();
       		break;
       	case 13:
       		a = 8;
@@ -534,6 +547,7 @@ public class Spielbrett extends JFrame {
       				dieGUI.buttons[b].setEnabled(true); 
       			}
       		}
+      		dieGUI.turn1player();
       		break;
       	case 14:
       		a = 9;
@@ -581,6 +595,7 @@ public class Spielbrett extends JFrame {
       				dieGUI.buttons[b].setEnabled(true); 
       			}
       		}
+      		dieGUI.turn1player();
       		break;
       	case 15:
       		a = 10;
@@ -604,6 +619,7 @@ public class Spielbrett extends JFrame {
       		if (button[20] == 0) {
       			dieGUI.buttons[20].setEnabled(true);
       		}
+      		dieGUI.turn1player();
       		break;
       	case 16:
     		if (button[15] == 0) {
@@ -635,6 +651,7 @@ public class Spielbrett extends JFrame {
           		dieGUI.buttons[i].setEnabled(true);
           		}
       		}
+      		dieGUI.turn1player();
       		break;
       	case 17:
       		a = 12;
@@ -667,6 +684,7 @@ public class Spielbrett extends JFrame {
       				dieGUI.buttons[b].setEnabled(true); 
       			}
       		}
+      		dieGUI.turn1player();
       		break;
       	case 18:
     		if (button[19] == 0) {
@@ -698,6 +716,7 @@ public class Spielbrett extends JFrame {
           		dieGUI.buttons[i].setEnabled(true);
           		}
       		}
+      		dieGUI.turn1player();
       		break;
       	case 19:
       		a = 14;
@@ -721,6 +740,7 @@ public class Spielbrett extends JFrame {
       		if (button[24] == 0) {
       			dieGUI.buttons[24].setEnabled(true);
       		}
+      		dieGUI.turn1player();
       		break;	
       	case 20:
       		a = 15;
@@ -750,6 +770,7 @@ public class Spielbrett extends JFrame {
       				dieGUI.buttons[b].setEnabled(true); 
       			}
       		}
+      		dieGUI.turn1player();
       		break;
       	case 21:
       		if (button[20] == 0) {
@@ -773,6 +794,7 @@ public class Spielbrett extends JFrame {
       				dieGUI.buttons[b].setEnabled(true); 
       			}
       		}
+      		dieGUI.turn1player();
       		break;
       	case 22:
       		a = 21;
@@ -805,6 +827,7 @@ public class Spielbrett extends JFrame {
       				}
       			}
       		}
+      		dieGUI.turn1player();
       		break;
       	case 23:
       		a = 22;
@@ -828,6 +851,7 @@ public class Spielbrett extends JFrame {
       		if (button[24] == 0) {
       			dieGUI.buttons[24].setEnabled(true);
       		}
+      		dieGUI.turn1player();
       		break;
       	case 24:
       		a = 23;
@@ -856,7 +880,9 @@ public class Spielbrett extends JFrame {
       			if(button[a] >= 13 & button[b]== 0) {
       				dieGUI.buttons[b].setEnabled(true); 
       			}
+      			
       		}
+      		dieGUI.turn1player();
     }
     
     
@@ -864,6 +890,7 @@ public class Spielbrett extends JFrame {
   }
   
   public static void SprungSpieler2() {
+	  System.out.println("Spielbrett zweiter SPieler turn");
 
 	    button[1] = 17;
 	    int a;
@@ -897,6 +924,7 @@ public class Spielbrett extends JFrame {
 	      				dieGUI.buttons[b].setEnabled(true); 
 	      			}
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 1:
 	      		if (button[0] == 0) {
@@ -920,6 +948,7 @@ public class Spielbrett extends JFrame {
 	      				dieGUI.buttons[b].setEnabled(true); 
 	      			}
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 2:
 	      		a = 1;
@@ -953,6 +982,7 @@ public class Spielbrett extends JFrame {
 	      				}
 	      			}
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 3:
 	      		a = 2;
@@ -976,6 +1006,7 @@ public class Spielbrett extends JFrame {
 	      				dieGUI.buttons[b].setEnabled(true); 
 	      			}
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 4:
 	      		a = 3;
@@ -1005,6 +1036,7 @@ public class Spielbrett extends JFrame {
 	      				dieGUI.buttons[b].setEnabled(true); 
 	      			}
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 5:
 	      		if (button[0] == 0) {
@@ -1028,6 +1060,7 @@ public class Spielbrett extends JFrame {
 	      				dieGUI.buttons[b].setEnabled(true); 
 	      			}
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 6:
 	      		for(a = 0;a<=a+2;a++) {
@@ -1059,6 +1092,7 @@ public class Spielbrett extends JFrame {
 	      				}
 	      			}
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 7:
 	      		if (button[2] == 0) {
@@ -1089,8 +1123,10 @@ public class Spielbrett extends JFrame {
 	      			b = 9;
 	      			if(button[a] <= 13 & button[b]== 0) {
 	      				dieGUI.buttons[b].setEnabled(true); 
+	      			
 	      			}
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 8:
 	      		a = 7;
@@ -1122,6 +1158,7 @@ public class Spielbrett extends JFrame {
 	          		dieGUI.buttons[i].setEnabled(true);
 	          		}
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 9:
 	      		if (button[4] == 0) {
@@ -1145,6 +1182,7 @@ public class Spielbrett extends JFrame {
 	      				dieGUI.buttons[b].setEnabled(true); 
 	      			}
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 10:
 	      		a = 5;
@@ -1192,7 +1230,7 @@ public class Spielbrett extends JFrame {
 	      				dieGUI.buttons[b].setEnabled(true); 
 	      			}
 	      		}
-
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 11:
 	      		a = 6;
@@ -1225,6 +1263,7 @@ public class Spielbrett extends JFrame {
 	      		if (button[10] == 0) {
 	      			dieGUI.buttons[10].setEnabled(true);
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 12:
 	      		a = 11;
@@ -1269,8 +1308,11 @@ public class Spielbrett extends JFrame {
 	      				}
 	      			}
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 13:
+	      		
+	      		
 	      		a = 8;
 	      		if (button[a] == 0) {
 	      			dieGUI.buttons[a].setEnabled(true); 
@@ -1301,6 +1343,7 @@ public class Spielbrett extends JFrame {
 	      				dieGUI.buttons[b].setEnabled(true); 
 	      			}
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 14:
 	      		a = 9;
@@ -1348,6 +1391,7 @@ public class Spielbrett extends JFrame {
 	      				dieGUI.buttons[b].setEnabled(true); 
 	      			}
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 15:
 	      		a = 10;
@@ -1371,6 +1415,7 @@ public class Spielbrett extends JFrame {
 	      		if (button[20] == 0) {
 	      			dieGUI.buttons[20].setEnabled(true);
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 16:
 	    		if (button[15] == 0) {
@@ -1402,6 +1447,7 @@ public class Spielbrett extends JFrame {
 	          		dieGUI.buttons[i].setEnabled(true);
 	          		}
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 17:
 	      		a = 12;
@@ -1434,6 +1480,7 @@ public class Spielbrett extends JFrame {
 	      				dieGUI.buttons[b].setEnabled(true); 
 	      			}
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 18:
 	    		if (button[19] == 0) {
@@ -1465,6 +1512,7 @@ public class Spielbrett extends JFrame {
 	          		dieGUI.buttons[i].setEnabled(true);
 	          		}
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 19:
 	      		a = 14;
@@ -1488,6 +1536,7 @@ public class Spielbrett extends JFrame {
 	      		if (button[24] == 0) {
 	      			dieGUI.buttons[24].setEnabled(true);
 	      		}
+	      		dieGUI.turn2player();
 	      		break;	
 	      	case 20:
 	      		a = 15;
@@ -1517,6 +1566,7 @@ public class Spielbrett extends JFrame {
 	      				dieGUI.buttons[b].setEnabled(true); 
 	      			}
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 21:
 	      		if (button[20] == 0) {
@@ -1540,6 +1590,7 @@ public class Spielbrett extends JFrame {
 	      				dieGUI.buttons[b].setEnabled(true); 
 	      			}
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 22:
 	      		a = 21;
@@ -1572,6 +1623,7 @@ public class Spielbrett extends JFrame {
 	      				}
 	      			}
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 23:
 	      		a = 22;
@@ -1595,6 +1647,7 @@ public class Spielbrett extends JFrame {
 	      		if (button[24] == 0) {
 	      			dieGUI.buttons[24].setEnabled(true);
 	      		}
+	      		dieGUI.turn2player();
 	      		break;
 	      	case 24:
 	      		a = 23;
@@ -1624,6 +1677,7 @@ public class Spielbrett extends JFrame {
 	      				dieGUI.buttons[b].setEnabled(true); 
 	      			}
 	      		}
+	      		dieGUI.turn2player();
 	    	}
 	    
 	  }
