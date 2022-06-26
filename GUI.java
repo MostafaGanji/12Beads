@@ -21,17 +21,26 @@ public class GUI extends JFrame{
   private static int modusNummer; // zeigt an ob 1 oder 2 Spieler-Modus
   private int werIstDran;
   Steuerung dieSteuerungen;
+  Spielbrett brett;
   JLabel [] spielerNamen=new JLabel[2];
+  int SteineAufFeldSpeichernP1[]=new int[25];
+  int SteineAufFeldSpeichernP2[]=new int[25];
   
   //Knöpfe mit gegnerischen Spielfigur disabeln-->wenn Knopf gedrückt wurde, dann Knöpfe mit eigenen Spielfiguren disabeln.
   //Wenn ein zug gemacht wurde, andere Spieler ist dran
   
-  public GUI(Steuerung pSteuerung) {
+  public GUI(Steuerung pSteuerung,Spielbrett pBrett) {
+	  brett=pBrett;
     dieSteuerungen = pSteuerung;
     for(int j=0;j<25;j++) {
         buttons[j]=new JButton();
         buttons[j].setEnabled(false);
       }
+    
+    for(int z=0;z<12;z++) {
+    	SteineAufFeldSpeichernP1[z]=z;
+    	SteineAufFeldSpeichernP2[z]=z;
+    }
     
     
   
@@ -45,6 +54,7 @@ public class GUI extends JFrame{
   
   public void guiWerDranIst(int werIsssstDran) {
 	  werIstDran=werIsssstDran;
+	  System.out.println("GUI "+werIstDran);
 	  
   }
  
@@ -319,21 +329,26 @@ public class GUI extends JFrame{
       getContentPane().add(spielBrettLabel);
       
       switch(werIstDran) {
-      case 1: turn1player();
       
-      case 0: turn2player();
+      	case 1: turn1player();
+      			break;
+      
+      	case 0: turn2player();
+      			break;
       }
       
       
   }
   
   public void turn1player() {
+	  System.out.println("Player 1 Turn aus GUI");
+	  
 	  buttons[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				if(buttonGedrueckt==0) {
 					verschiebenNach[0]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(0);
+					dieSteuerungen.knopfGedruecktFuerBrettP1(0);
 			
 			
 			
@@ -342,6 +357,7 @@ public class GUI extends JFrame{
 				if(buttonGedrueckt==1){
 					for(int j=0;j<25;j++) {
 						if(verschiebenNach[j]==true) {
+							
 							spielsteineP1[j].setBounds(47, 54, 200, 200);
 							verschiebenNach[j]=false;
 						}
@@ -361,7 +377,7 @@ public class GUI extends JFrame{
 
 				if(buttonGedrueckt==0) {
 					verschiebenNach[1]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(1);
+					dieSteuerungen.knopfGedruecktFuerBrettP1(1);
 				
 				
 				
@@ -389,7 +405,7 @@ public class GUI extends JFrame{
 
 				if(buttonGedrueckt==0) {
 					verschiebenNach[2]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(2);
+					dieSteuerungen.knopfGedruecktFuerBrettP1(2);
 				
 			
 			
@@ -417,7 +433,7 @@ public class GUI extends JFrame{
 
 				if(buttonGedrueckt==0) {
 					verschiebenNach[3]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(3);
+					dieSteuerungen.knopfGedruecktFuerBrettP1(3);
 			
 			
 			
@@ -445,7 +461,7 @@ public class GUI extends JFrame{
 
 				if(buttonGedrueckt==0) {
 					verschiebenNach[4]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(4);
+					dieSteuerungen.knopfGedruecktFuerBrettP1(4);
 			
 			
 			
@@ -473,7 +489,7 @@ public class GUI extends JFrame{
 
 				if(buttonGedrueckt==0) {
 					verschiebenNach[5]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(5);
+					dieSteuerungen.knopfGedruecktFuerBrettP1(5);
 			
 			
 			
@@ -501,7 +517,7 @@ public class GUI extends JFrame{
 
 				if(buttonGedrueckt==0) {
 					verschiebenNach[6]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(6);
+					dieSteuerungen.knopfGedruecktFuerBrettP1(6);
 			
 			
 			
@@ -529,7 +545,7 @@ buttons[7].addActionListener(new ActionListener() {
 
 		if(buttonGedrueckt==0) {
 			verschiebenNach[7]=true;
-			dieSteuerungen.knopfGedruecktFuerBrett(7);
+			dieSteuerungen.knopfGedruecktFuerBrettP1(7);
 			
 			
 			
@@ -557,7 +573,7 @@ buttons[8].addActionListener(new ActionListener() {
 
 		if(buttonGedrueckt==0) {
 			verschiebenNach[8]=true;
-			dieSteuerungen.knopfGedruecktFuerBrett(8);
+			dieSteuerungen.knopfGedruecktFuerBrettP1(8);
 			
 			
 			
@@ -585,7 +601,7 @@ buttons[9].addActionListener(new ActionListener() {
 
 		if(buttonGedrueckt==0) {
 			verschiebenNach[9]=true;
-			dieSteuerungen.knopfGedruecktFuerBrett(9);
+			dieSteuerungen.knopfGedruecktFuerBrettP1(9);
 			
 			
 		}
@@ -612,7 +628,7 @@ buttons[10].addActionListener(new ActionListener() {
 
 		if(buttonGedrueckt==0) {
 			verschiebenNach[10]=true;
-			dieSteuerungen.knopfGedruecktFuerBrett(10);
+			dieSteuerungen.knopfGedruecktFuerBrettP1(10);
 			
 			
 		}
@@ -639,7 +655,7 @@ buttons[11].addActionListener(new ActionListener() {
 
 		if(buttonGedrueckt==0) {
 			verschiebenNach[11]=true;
-			dieSteuerungen.knopfGedruecktFuerBrett(11);
+			dieSteuerungen.knopfGedruecktFuerBrettP1(11);
 			
 			
 			
@@ -667,7 +683,9 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[12]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(12);
+				
+				dieSteuerungen.knopfGedruecktFuerBrettP1(12);
+				System.out.println("Knopf 12 wurde gedrüctk");
 				
 				
 				
@@ -694,7 +712,9 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[13]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(13);
+				
+				dieSteuerungen.knopfGedruecktFuerBrettP1(13);
+				System.out.println("Knopf 13 wurde gedrüctk");
 				
 				
 				
@@ -721,7 +741,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[14]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(14);
+				dieSteuerungen.knopfGedruecktFuerBrettP1(14);
 				
 				
 				
@@ -748,7 +768,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[15]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(15);
+				dieSteuerungen.knopfGedruecktFuerBrettP1(15);
 				
 				
 				
@@ -775,7 +795,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[16]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(16);
+				dieSteuerungen.knopfGedruecktFuerBrettP1(16);
 				
 				
 				
@@ -802,7 +822,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[17]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(17);
+				dieSteuerungen.knopfGedruecktFuerBrettP1(17);
 				
 				
 				
@@ -829,7 +849,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[18]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(18);
+				dieSteuerungen.knopfGedruecktFuerBrettP1(18);
 				
 				
 				
@@ -856,7 +876,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[19]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(19);
+				dieSteuerungen.knopfGedruecktFuerBrettP1(19);
 				
 				
 				
@@ -883,7 +903,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[20]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(20);
+				dieSteuerungen.knopfGedruecktFuerBrettP1(20);
 				
 				
 				
@@ -910,7 +930,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[21]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(21);
+				dieSteuerungen.knopfGedruecktFuerBrettP1(21);
 				
 				
 				
@@ -937,7 +957,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[22]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(22);
+				dieSteuerungen.knopfGedruecktFuerBrettP1(22);
 				
 				
 				
@@ -964,7 +984,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[23]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(23);
+				dieSteuerungen.knopfGedruecktFuerBrettP1(23);
 				
 				
 			}
@@ -990,7 +1010,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[24]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(24);
+				dieSteuerungen.knopfGedruecktFuerBrettP1(24);
 				
 				
 				
@@ -1016,13 +1036,13 @@ buttons[12].addActionListener(new ActionListener() {
   }
   
   public void turn2player() {
-	  System.out.println("Das ist der zweispüielermölaskdjfalsdfj");
+	  System.out.println("Player 2 Turn aus GUI");
       buttons[0].addActionListener(new ActionListener() {
       	public void actionPerformed(ActionEvent e) {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[0]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(0);
+				dieSteuerungen.knopfGedruecktFuerBrettP2(0);
 				
 				
 				
@@ -1050,7 +1070,7 @@ buttons[12].addActionListener(new ActionListener() {
 	
 				if(buttonGedrueckt==0) {
 					verschiebenNach[1]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(1);
+					dieSteuerungen.knopfGedruecktFuerBrettP2(1);
 					
 					
 					
@@ -1078,7 +1098,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[2]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(2);
+				dieSteuerungen.knopfGedruecktFuerBrettP2(2);
 				
 				
 				
@@ -1106,7 +1126,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[3]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(3);
+				dieSteuerungen.knopfGedruecktFuerBrettP2(3);
 				
 				
 				
@@ -1134,7 +1154,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[4]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(4);
+				dieSteuerungen.knopfGedruecktFuerBrettP2(4);
 				
 				
 				
@@ -1162,7 +1182,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[5]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(5);
+				dieSteuerungen.knopfGedruecktFuerBrettP2(5);
 				
 				
 				
@@ -1190,7 +1210,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[6]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(6);
+				dieSteuerungen.knopfGedruecktFuerBrettP2(6);
 				
 				
 				
@@ -1218,7 +1238,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[7]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(7);
+				dieSteuerungen.knopfGedruecktFuerBrettP2(7);
 				
 				
 				
@@ -1246,7 +1266,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[8]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(8);
+				dieSteuerungen.knopfGedruecktFuerBrettP2(8);
 				
 				
 				
@@ -1274,7 +1294,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[9]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(9);
+				dieSteuerungen.knopfGedruecktFuerBrettP2(9);
 				
 				
 			}
@@ -1301,7 +1321,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[10]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(10);
+				dieSteuerungen.knopfGedruecktFuerBrettP2(10);
 				
 				
 				
@@ -1329,7 +1349,7 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[11]=true;
-				dieSteuerungen.knopfGedruecktFuerBrett(11);
+				dieSteuerungen.knopfGedruecktFuerBrettP2(11);
 				
 				
 				
@@ -1357,7 +1377,8 @@ buttons[12].addActionListener(new ActionListener() {
 	
 				if(buttonGedrueckt==0) {
 					verschiebenNach[12]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(12);
+					System.out.println("Knopf 12 wurde gedrueckt");
+					dieSteuerungen.knopfGedruecktFuerBrettP2(12);
 					
 					
 				}
@@ -1383,7 +1404,9 @@ buttons[12].addActionListener(new ActionListener() {
 	
 				if(buttonGedrueckt==0) {
 					verschiebenNach[13]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(13);
+					
+					dieSteuerungen.knopfGedruecktFuerBrettP2(13);
+					System.out.println("Knopf 12 wurde gedrüctk");
 					
 					
 					
@@ -1410,7 +1433,7 @@ buttons[12].addActionListener(new ActionListener() {
 	
 				if(buttonGedrueckt==0) {
 					verschiebenNach[14]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(14);
+					dieSteuerungen.knopfGedruecktFuerBrettP2(14);
 					
 					
 				}
@@ -1436,7 +1459,7 @@ buttons[12].addActionListener(new ActionListener() {
 	
 				if(buttonGedrueckt==0) {
 					verschiebenNach[15]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(15);
+					dieSteuerungen.knopfGedruecktFuerBrettP2(15);
 					
 					
 					
@@ -1463,7 +1486,7 @@ buttons[12].addActionListener(new ActionListener() {
 	
 				if(buttonGedrueckt==0) {
 					verschiebenNach[16]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(16);
+					dieSteuerungen.knopfGedruecktFuerBrettP2(16);
 					
 					
 					
@@ -1490,7 +1513,7 @@ buttons[12].addActionListener(new ActionListener() {
 	
 				if(buttonGedrueckt==0) {
 					verschiebenNach[17]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(17);
+					dieSteuerungen.knopfGedruecktFuerBrettP2(17);
 					
 					
 				}
@@ -1516,7 +1539,7 @@ buttons[12].addActionListener(new ActionListener() {
 	
 				if(buttonGedrueckt==0) {
 					verschiebenNach[18]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(18);
+					dieSteuerungen.knopfGedruecktFuerBrettP2(18);
 					
 					
 					
@@ -1543,7 +1566,7 @@ buttons[12].addActionListener(new ActionListener() {
 	
 				if(buttonGedrueckt==0) {
 					verschiebenNach[19]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(19);
+					dieSteuerungen.knopfGedruecktFuerBrettP2(19);
 					
 					
 					
@@ -1570,7 +1593,7 @@ buttons[12].addActionListener(new ActionListener() {
 	
 				if(buttonGedrueckt==0) {
 					verschiebenNach[20]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(20);
+					dieSteuerungen.knopfGedruecktFuerBrettP2(20);
 					
 					
 				}
@@ -1596,7 +1619,7 @@ buttons[12].addActionListener(new ActionListener() {
 	
 				if(buttonGedrueckt==0) {
 					verschiebenNach[21]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(21);
+					dieSteuerungen.knopfGedruecktFuerBrettP2(21);
 					
 					
 				}
@@ -1622,7 +1645,7 @@ buttons[12].addActionListener(new ActionListener() {
 	
 				if(buttonGedrueckt==0) {
 					verschiebenNach[22]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(22);
+					dieSteuerungen.knopfGedruecktFuerBrettP2(22);
 					
 					
 					
@@ -1649,7 +1672,7 @@ buttons[12].addActionListener(new ActionListener() {
 	
 				if(buttonGedrueckt==0) {
 					verschiebenNach[23]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(23);
+					dieSteuerungen.knopfGedruecktFuerBrettP2(23);
 					
 					
 					
@@ -1676,7 +1699,7 @@ buttons[12].addActionListener(new ActionListener() {
 	
 				if(buttonGedrueckt==0) {
 					verschiebenNach[24]=true;
-					dieSteuerungen.knopfGedruecktFuerBrett(24);
+					dieSteuerungen.knopfGedruecktFuerBrettP2(24);
 					
 					
 					
