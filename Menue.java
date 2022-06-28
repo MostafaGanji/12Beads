@@ -9,19 +9,20 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class Menue extends JFrame{
-	private JTextField Text1;
-	private JTextField Text2;
-	protected int nummer;
+	 int nummer;
 	Steuerung dieSteuerung;
-	 ImageIcon menueDesign = new ImageIcon ("T:\\Klasse tgi12\\IT\\Mostafa\\SkalierteBilder\\Start Seite.jpg");
-	private JLabel menueLabel=new JLabel();
+	 ImageIcon menueDesign = new ImageIcon ("C:\\Users\\lucas\\Downloads\\Start Seite.jpg");
 	
 	public Menue(Steuerung pSteuerung) {
 		
-		dieSteuerung= pSteuerung;
+		dieSteuerung = pSteuerung;
+		
 		getContentPane().setLayout(null);
+		
 		setVisible(true);
 		setSize(850,870);
+		setResizable(false);
+		setLocationRelativeTo(null);
 		setTitle("12 Beads Menü");
 		
 		
@@ -53,7 +54,6 @@ public class Menue extends JFrame{
 		Knopf1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				nummer=1;
-				this.dispose();
 				dieSteuerung.setModusNummer(nummer);
 				
 				
@@ -63,33 +63,17 @@ public class Menue extends JFrame{
 				
 			}
 
-			private void dispose() {
-				// TODO Auto-generated method stub
-				
-			}
 		});
 		
 		Knopf2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				nummer=2;
-				this.dispose();
+				
 				dieSteuerung.setModusNummer(nummer);
-				dieSteuerung.init();
-				
-				
-				
-				
-				
-				
-				
 				
 				
 			}
 
-			private void dispose() {
-				// TODO Auto-generated method stub
-				
-			}
 		});
 		
 		exitButton.addActionListener(new ActionListener() {
