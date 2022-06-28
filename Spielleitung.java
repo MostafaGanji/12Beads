@@ -30,14 +30,12 @@ public void WerIstDran() {
 	
 	aktiverSpieler = random();
 	  switch (aktiverSpieler) {
-	    case 1 :
-	      System.out.println("Spieler 1 ist dran");
-	      // Button 0-12 enabln
+	    case 1: System.out.println("Spieler 1 fängt an");
+	     
 	      break;
 	      
-	    case 0 :
-	      System.out.println("Spieler 2 ist dran");
-	      // Button 13-24 enabln
+	    case 0 : System.out.println("Spieler 2 fängt an");
+	      
 	      break;
 	    }
 	  steuerung.getWerDranIst(aktiverSpieler);
