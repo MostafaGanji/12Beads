@@ -7,9 +7,11 @@ public class Steuerung {
   static Spielleitung leitung;
   Menue dasMenue;
   GUI dieGUI;
+  int dieserSpieler;
   Namen namenDigital;
   String namensen[]= new String[2];
   Spielbrett brett;
+  int jetzt;
   
   public Steuerung() {
 	 
@@ -17,7 +19,6 @@ public class Steuerung {
 	  dieGUI = new GUI(this,brett);
 	  leitung=new Spielleitung(this);
 	  brett= new Spielbrett(dieGUI);
-	  running(); //Running nicht auskommentieren
 
 	   
   }
@@ -47,12 +48,13 @@ public void knopfGedruecktFuerBrettP2(int zahl) {
 	  }
   
   
-  public void running() {
-	  
-	  if (leitung.aktiverSpieler == 1) {
-		  brett.spielerEins();
+  public void running(int welcherSpieler,int steineAufFeld[]) {
+	  jetzt++;
+	  System.out.println("AUS running "+jetzt);
+	  if (welcherSpieler == 1) {
+		  brett.spielerEins(steineAufFeld);
 	  }else {
-		  brett.spielerZwei();
+		  brett.spielerZwei(steineAufFeld);
 	  }
   }
   
@@ -63,18 +65,22 @@ public void knopfGedruecktFuerBrettP2(int zahl) {
   }
   
   public void getWerDranIst(int werDranIst) {
-	  System.out.println("Es ist Spieler"+werDranIst+"dran");
-	  System.out.println("Steueerung "+werDranIst);
+	  dieserSpieler=werDranIst;
 	  dieGUI.guiWerDranIst(werDranIst);
   }
   
   
   public void setModusNummer(int nummer) {
-	  
     modusNr= nummer;
-    dieGUI.setModusNummer(modusNr);
+    
     if(modusNr==2) {
+    	dieGUI.setModusNummer(modusNr);
     	namenDigital= new Namen(this,dieGUI);
+    	
+    }
+    
+    if(modusNr==1) {
+    	dieGUI.einzelSpielerModus();
     	
     }
   
