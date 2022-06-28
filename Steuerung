@@ -24,7 +24,6 @@ public class Steuerung {
   }
   
   public void knopfGedruecktFuerBrettP1(int zahl) {
-	  
 	  for(int j=0;j<25;j++) {
 	        dieGUI.buttons[j].setEnabled(false);
 	      }
@@ -50,7 +49,6 @@ public void knopfGedruecktFuerBrettP2(int zahl) {
   
   public void running(int welcherSpieler,int steineAufFeld[]) {
 	  jetzt++;
-	  System.out.println("AUS running "+jetzt);
 	  if (welcherSpieler == 1) {
 		  brett.spielerEins(steineAufFeld);
 	  }else {
