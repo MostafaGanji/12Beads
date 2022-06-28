@@ -30,8 +30,6 @@ public class GUI extends JFrame{
   int zwischenSpeicher;
   int steineAufFeldSpeichernP1[]=new int[25];
   int steineAufFeldSpeichernP2[]=new int[25];
-  int buttonsAufFeldSpeichernP1[]=new int[12];
-  int buttonsAufFeldSpeichernP2[]=new int[12];
   
   //Knöpfe mit gegnerischen Spielfigur disabeln-->wenn Knopf gedrückt wurde, dann Knöpfe mit eigenen Spielfiguren disabeln.
   //Wenn ein zug gemacht wurde, andere Spieler ist dran
@@ -132,128 +130,128 @@ public class GUI extends JFrame{
       
       buttons[0].setBounds(90, 90, 60, 60);
       getContentPane().add(buttons[0]);
-      buttons[0].setContentAreaFilled(true);
+      buttons[0].setContentAreaFilled(false);
       buttons[0].setBorder(null);
       
       buttons[1].setBounds(256, 94, 60, 60);
       getContentPane().add(buttons[1]);
-      buttons[1].setContentAreaFilled(true);
+      buttons[1].setContentAreaFilled(false);
       buttons[1].setBorder(null);
       
       buttons[2].setBounds(420, 94, 60, 60);
       getContentPane().add(buttons[2]);
-      buttons[2].setContentAreaFilled(true);
+      buttons[2].setContentAreaFilled(false);
       buttons[2].setBorder(null);
       
       
       buttons[3].setBounds(587, 90, 60, 60);
       getContentPane().add(buttons[3]);
-      buttons[3].setContentAreaFilled(true);
+      buttons[3].setContentAreaFilled(false);
       buttons[3].setBorder(null);
       
       buttons[4].setBounds(760, 90, 60, 60);
       getContentPane().add(buttons[4]);
-      buttons[4].setContentAreaFilled(true);
+      buttons[4].setContentAreaFilled(false);
       buttons[4].setBorder(null);
       
       buttons[5].setBounds(90, 250, 60, 60);
       getContentPane().add(buttons[5]);
-      buttons[5].setContentAreaFilled(true);
+      buttons[5].setContentAreaFilled(false);
       buttons[5].setBorder(null);
       
       buttons[6].setBounds(257,260, 60, 60);
       getContentPane().add(buttons[6]);
-      buttons[6].setContentAreaFilled(true);
+      buttons[6].setContentAreaFilled(false);
       buttons[6].setBorder(null);
       
       buttons[7].setBounds(420, 260, 60, 60);
       getContentPane().add(buttons[7]);
-      buttons[7].setContentAreaFilled(true);
+      buttons[7].setContentAreaFilled(false);
       buttons[7].setBorder(null);
       
       buttons[8].setBounds(587, 260, 60, 60);
       getContentPane().add(buttons[8]);
-      buttons[8].setContentAreaFilled(true);
+      buttons[8].setContentAreaFilled(false);
       buttons[8].setBorder(null);
       
       buttons[9].setBounds(760, 260, 60, 60);
       getContentPane().add(buttons[9]);
-      buttons[9].setContentAreaFilled(true);
+      buttons[9].setContentAreaFilled(false);
       buttons[9].setBorder(null);
       
       buttons[10].setBounds(90, 418, 60, 60);
       getContentPane().add(buttons[10]);
-      buttons[10].setContentAreaFilled(true);
+      buttons[10].setContentAreaFilled(false);
       buttons[10].setBorder(null);
       
       buttons[11].setBounds(255, 425, 60, 60);
       getContentPane().add(buttons[11]);
-      buttons[11].setContentAreaFilled(true);
+      buttons[11].setContentAreaFilled(false);
       buttons[11].setBorder(null);
       
       buttons[12].setBounds(425, 425, 60, 60);
       getContentPane().add(buttons[12]);
-      buttons[12].setContentAreaFilled(true);
+      buttons[12].setContentAreaFilled(false);
       buttons[12].setBorder(null);
       
       buttons[13].setBounds(590,425, 60, 60);
       getContentPane().add(buttons[13]);
-      buttons[13].setContentAreaFilled(true);
+      buttons[13].setContentAreaFilled(false);
       buttons[13].setBorder(null);
       
       buttons[14].setBounds(755,425, 60, 60);
       getContentPane().add(buttons[14]);
-      buttons[14].setContentAreaFilled(true);
+      buttons[14].setContentAreaFilled(false);
       buttons[14].setBorder(null);
       
       buttons[15].setBounds(90, 580, 60, 60);
       getContentPane().add(buttons[15]);
-      buttons[15].setContentAreaFilled(true);
+      buttons[15].setContentAreaFilled(false);
       buttons[15].setBorder(null);
       
       buttons[16].setBounds(255, 585, 60, 60);
       getContentPane().add(buttons[16]);
-      buttons[16].setContentAreaFilled(true);
+      buttons[16].setContentAreaFilled(false);
       buttons[16].setBorder(null);
       
       buttons[17].setBounds(422, 588, 60, 60);
       getContentPane().add(buttons[17]);
-      buttons[17].setContentAreaFilled(true);
+      buttons[17].setContentAreaFilled(false);
       buttons[17].setBorder(null);
       
       buttons[18].setBounds(588, 588, 60, 60);
       getContentPane().add(buttons[18]);
-      buttons[18].setContentAreaFilled(true);
+      buttons[18].setContentAreaFilled(false);
       buttons[18].setBorder(null);
       
       buttons[19].setBounds(755, 588, 60, 60);
       getContentPane().add(buttons[19]);
-      buttons[19].setContentAreaFilled(true);
+      buttons[19].setContentAreaFilled(false);
       buttons[19].setBorder(null);
       
       buttons[20].setBounds(93, 734, 60, 60);
       getContentPane().add(buttons[20]);
-      buttons[20].setContentAreaFilled(true);
+      buttons[20].setContentAreaFilled(false);
       buttons[20].setBorder(null);
       
       buttons[21].setBounds(255, 745, 60, 60);
       getContentPane().add(buttons[21]);
-      buttons[21].setContentAreaFilled(true);
+      buttons[21].setContentAreaFilled(false);
       buttons[21].setBorder(null);
       
       buttons[22].setBounds(422, 745, 60, 60);
       getContentPane().add(buttons[22]);
-      buttons[22].setContentAreaFilled(true);
+      buttons[22].setContentAreaFilled(false);
       buttons[22].setBorder(null);
       
       buttons[23].setBounds(588, 745, 60, 60);
       getContentPane().add(buttons[23]);
-      buttons[23].setContentAreaFilled(true);
+      buttons[23].setContentAreaFilled(false);
       buttons[23].setBorder(null);
       
       buttons[24].setBounds(750, 745, 60, 60);
       getContentPane().add(buttons[24]);
-      buttons[24].setContentAreaFilled(true);
+      buttons[24].setContentAreaFilled(false);
       buttons[24].setBorder(null);
 
       
@@ -338,6 +336,7 @@ public class GUI extends JFrame{
       spielBrettLabel = new JLabel(spielBrett);       
       spielBrettLabel.setBounds(-50, -48, 1000, 1000);
       getContentPane().add(spielBrettLabel);
+      System.out.println("Ich komme durch");
       switch(werIstDran) {
       
       
@@ -352,8 +351,6 @@ public class GUI extends JFrame{
   }
   
   public void turn1player() {
-	  System.out.println("Button gedrueckt aus p1 "+buttonGedrueckt);
-	  System.out.println("Player 1 Turn aus GUI");
 	  
 	  buttons[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -375,7 +372,7 @@ public class GUI extends JFrame{
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP1[z]==j) {
 									
-									steineAufFeldSpeichernP1[z]=12;
+									steineAufFeldSpeichernP1[z]=0;
 									spielsteineP1[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -392,6 +389,7 @@ public class GUI extends JFrame{
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+					buttons[0].removeActionListener(buttons[0].getActionListeners()[0]);
 					
 					
 				}
@@ -421,7 +419,7 @@ public class GUI extends JFrame{
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP1[z]==j) {
 									
-									steineAufFeldSpeichernP1[z]=12;
+									steineAufFeldSpeichernP1[z]=1;
 									spielsteineP1[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -438,6 +436,7 @@ public class GUI extends JFrame{
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+					buttons[1].removeActionListener(buttons[1].getActionListeners()[0]);
 					
 					
 				}
@@ -467,7 +466,7 @@ public class GUI extends JFrame{
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP1[z]==j) {
 									
-									steineAufFeldSpeichernP1[z]=12;
+									steineAufFeldSpeichernP1[z]=2;
 									spielsteineP1[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -484,6 +483,7 @@ public class GUI extends JFrame{
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+					buttons[2].removeActionListener(buttons[2].getActionListeners()[0]);
 					
 					
 				}
@@ -513,7 +513,7 @@ public class GUI extends JFrame{
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP1[z]==j) {
 									
-									steineAufFeldSpeichernP1[z]=12;
+									steineAufFeldSpeichernP1[z]=3;
 									spielsteineP1[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -530,6 +530,7 @@ public class GUI extends JFrame{
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+					buttons[3].removeActionListener(buttons[3].getActionListeners()[0]);
 					
 					
 				}
@@ -559,7 +560,7 @@ public class GUI extends JFrame{
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP1[z]==j) {
 									
-									steineAufFeldSpeichernP1[z]=12;
+									steineAufFeldSpeichernP1[z]=4;
 									spielsteineP1[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -576,6 +577,7 @@ public class GUI extends JFrame{
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+					buttons[4].removeActionListener(buttons[4].getActionListeners()[0]);
 					
 					
 				}
@@ -605,7 +607,7 @@ public class GUI extends JFrame{
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP1[z]==j) {
 									
-									steineAufFeldSpeichernP1[z]=12;
+									steineAufFeldSpeichernP1[z]=5;
 									spielsteineP1[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -622,6 +624,7 @@ public class GUI extends JFrame{
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+					buttons[5].removeActionListener(buttons[5].getActionListeners()[0]);
 					
 					
 				}
@@ -651,7 +654,7 @@ public class GUI extends JFrame{
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP1[z]==j) {
 									
-									steineAufFeldSpeichernP1[z]=12;
+									steineAufFeldSpeichernP1[z]=6;
 									spielsteineP1[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -668,6 +671,7 @@ public class GUI extends JFrame{
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+					buttons[6].removeActionListener(buttons[6].getActionListeners()[0]);
 					
 					
 				}
@@ -697,7 +701,7 @@ buttons[7].addActionListener(new ActionListener() {
 					for(int z=0;z<12;z++) {
 						if(steineAufFeldSpeichernP1[z]==j) {
 							
-							steineAufFeldSpeichernP1[z]=12;
+							steineAufFeldSpeichernP1[z]=7;
 							spielsteineP1[z].setBounds(355, 357, 200, 200);
 							verschiebenNach[j]=false;	
 							
@@ -714,6 +718,7 @@ buttons[7].addActionListener(new ActionListener() {
 			}
 			buttonGedrueckt=0;
 			dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+			buttons[7].removeActionListener(buttons[7].getActionListeners()[0]);
 			
 			
 		}
@@ -743,7 +748,7 @@ buttons[8].addActionListener(new ActionListener() {
 					for(int z=0;z<12;z++) {
 						if(steineAufFeldSpeichernP1[z]==j) {
 							
-							steineAufFeldSpeichernP1[z]=12;
+							steineAufFeldSpeichernP1[z]=8;
 							spielsteineP1[z].setBounds(355, 357, 200, 200);
 							verschiebenNach[j]=false;	
 							
@@ -760,6 +765,7 @@ buttons[8].addActionListener(new ActionListener() {
 			}
 			buttonGedrueckt=0;
 			dieSteuerungen.running(2,steineAufFeldSpeichernP1);
+			buttons[8].removeActionListener(buttons[8].getActionListeners()[0]);
 			
 			
 		}
@@ -789,7 +795,7 @@ buttons[9].addActionListener(new ActionListener() {
 					for(int z=0;z<12;z++) {
 						if(steineAufFeldSpeichernP1[z]==j) {
 							
-							steineAufFeldSpeichernP1[z]=12;
+							steineAufFeldSpeichernP1[z]=9;
 							spielsteineP1[z].setBounds(355, 357, 200, 200);
 							verschiebenNach[j]=false;	
 							
@@ -806,6 +812,7 @@ buttons[9].addActionListener(new ActionListener() {
 			}
 			buttonGedrueckt=0;
 			dieSteuerungen.running(2,steineAufFeldSpeichernP1);
+			buttons[0].removeActionListener(buttons[9].getActionListeners()[9]);
 			
 			
 		}
@@ -835,7 +842,7 @@ buttons[10].addActionListener(new ActionListener() {
 					for(int z=0;z<12;z++) {
 						if(steineAufFeldSpeichernP1[z]==j) {
 							
-							steineAufFeldSpeichernP1[z]=12;
+							steineAufFeldSpeichernP1[z]=10;
 							spielsteineP1[z].setBounds(355, 357, 200, 200);
 							verschiebenNach[j]=false;	
 							
@@ -852,6 +859,7 @@ buttons[10].addActionListener(new ActionListener() {
 			}
 			buttonGedrueckt=0;
 			dieSteuerungen.running(2,steineAufFeldSpeichernP1);
+			buttons[10].removeActionListener(buttons[10].getActionListeners()[0]);
 			
 			
 		}
@@ -881,7 +889,7 @@ buttons[11].addActionListener(new ActionListener() {
 					for(int z=0;z<12;z++) {
 						if(steineAufFeldSpeichernP1[z]==j) {
 							
-							steineAufFeldSpeichernP1[z]=12;
+							steineAufFeldSpeichernP1[z]=11;
 							spielsteineP1[z].setBounds(355, 357, 200, 200);
 							verschiebenNach[j]=false;	
 							
@@ -898,6 +906,7 @@ buttons[11].addActionListener(new ActionListener() {
 			}
 			buttonGedrueckt=0;
 			dieSteuerungen.running(2,steineAufFeldSpeichernP1);
+			buttons[11].removeActionListener(buttons[11].getActionListeners()[0]);
 			
 			
 		}
@@ -909,7 +918,6 @@ buttons[11].addActionListener(new ActionListener() {
 
 buttons[12].addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			System.out.println("Das ist die Nummer 12");
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[12]=true;
@@ -945,6 +953,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(2,steineAufFeldSpeichernP1);
+				buttons[12].removeActionListener(buttons[12].getActionListeners()[0]);
 				
 				
 			}
@@ -973,10 +982,10 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP1[z]==j) {
 								for(int l=0;l<12;l++) {
-									System.out.println("Button 13---"+steineAufFeldSpeichernP1[l]);
+									
 								}
 								
-								steineAufFeldSpeichernP1[z]=12;
+								steineAufFeldSpeichernP1[z]=13;
 								spielsteineP1[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -993,6 +1002,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(2,steineAufFeldSpeichernP1);
+				buttons[13].removeActionListener(buttons[13].getActionListeners()[0]);
 				
 				
 			}
@@ -1021,7 +1031,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP1[z]==j) {
 								
-								steineAufFeldSpeichernP1[z]=12;
+								steineAufFeldSpeichernP1[z]=14;
 								spielsteineP1[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -1038,6 +1048,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(2,steineAufFeldSpeichernP1);
+				buttons[14].removeActionListener(buttons[14].getActionListeners()[0]);
 				
 				
 			}
@@ -1066,7 +1077,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP1[z]==j) {
 								
-								steineAufFeldSpeichernP1[z]=12;
+								steineAufFeldSpeichernP1[z]=15;
 								spielsteineP1[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -1083,6 +1094,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				buttons[15].removeActionListener(buttons[15].getActionListeners()[0]);
 				
 				
 			}
@@ -1111,7 +1123,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP1[z]==j) {
 								
-								steineAufFeldSpeichernP1[z]=12;
+								steineAufFeldSpeichernP1[z]=16;
 								spielsteineP1[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -1127,6 +1139,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				buttons[16].removeActionListener(buttons[16].getActionListeners()[0]);
 				
 				
 			}
@@ -1155,7 +1168,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP1[z]==j) {
 								
-								steineAufFeldSpeichernP1[z]=12;
+								steineAufFeldSpeichernP1[z]=17;
 								spielsteineP1[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -1172,6 +1185,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				buttons[17].removeActionListener(buttons[17].getActionListeners()[0]);
 				
 				
 			}
@@ -1200,7 +1214,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP1[z]==j) {
 								
-								steineAufFeldSpeichernP1[z]=12;
+								steineAufFeldSpeichernP1[z]=18;
 								spielsteineP1[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -1217,6 +1231,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				buttons[18].removeActionListener(buttons[18].getActionListeners()[0]);
 				
 				
 			}
@@ -1245,7 +1260,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP1[z]==j) {
 								
-								steineAufFeldSpeichernP1[z]=12;
+								steineAufFeldSpeichernP1[z]=19;
 								spielsteineP1[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -1262,6 +1277,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				buttons[19].removeActionListener(buttons[19].getActionListeners()[0]);
 				
 				
 			}
@@ -1290,7 +1306,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP1[z]==j) {
 								
-								steineAufFeldSpeichernP1[z]=12;
+								steineAufFeldSpeichernP1[z]=20;
 								spielsteineP1[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -1307,6 +1323,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				buttons[20].removeActionListener(buttons[20].getActionListeners()[0]);
 				
 				
 			}
@@ -1335,7 +1352,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP1[z]==j) {
 								
-								steineAufFeldSpeichernP1[z]=12;
+								steineAufFeldSpeichernP1[z]=21;
 								spielsteineP1[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -1352,6 +1369,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				buttons[21].removeActionListener(buttons[21].getActionListeners()[0]);
 				
 				
 			}
@@ -1380,7 +1398,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP1[z]==j) {
 								
-								steineAufFeldSpeichernP1[z]=12;
+								steineAufFeldSpeichernP1[z]=22;
 								spielsteineP1[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -1397,6 +1415,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				buttons[22].removeActionListener(buttons[22].getActionListeners()[0]);
 				
 				
 			}
@@ -1425,7 +1444,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP1[z]==j) {
 								
-								steineAufFeldSpeichernP1[z]=12;
+								steineAufFeldSpeichernP1[z]=23;
 								spielsteineP1[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -1442,6 +1461,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				buttons[23].removeActionListener(buttons[23].getActionListeners()[0]);
 				
 				
 			}
@@ -1471,7 +1491,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP1[z]==j) {
 								
-								steineAufFeldSpeichernP1[z]=12;
+								steineAufFeldSpeichernP1[z]=24;
 								spielsteineP1[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -1488,6 +1508,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				buttons[24].removeActionListener(buttons[24].getActionListeners()[0]);
 				
 				
 			}
@@ -1500,8 +1521,6 @@ buttons[12].addActionListener(new ActionListener() {
   }
   
   public void turn2player() {
-	  System.out.println("Button gedrueckt aus p2 "+buttonGedrueckt);
-	  System.out.println("Player 2 Turn aus GUI");
       buttons[0].addActionListener(new ActionListener() {
       	public void actionPerformed(ActionEvent e) {
 
@@ -1522,7 +1541,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP2[z]==j) {
 								
-								steineAufFeldSpeichernP2[z]=12;
+								steineAufFeldSpeichernP2[z]=0;
 								spielsteineP2[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -1539,6 +1558,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+				buttons[0].removeActionListener(buttons[0].getActionListeners()[0]);
 				
 				
 			}
@@ -1568,7 +1588,7 @@ buttons[12].addActionListener(new ActionListener() {
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP2[z]==j) {
 									
-									steineAufFeldSpeichernP2[z]=12;
+									steineAufFeldSpeichernP2[z]=1;
 									spielsteineP2[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -1585,6 +1605,7 @@ buttons[12].addActionListener(new ActionListener() {
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+					buttons[1].removeActionListener(buttons[1].getActionListeners()[0]);
 					
 					
 				}
@@ -1614,7 +1635,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP2[z]==j) {
 								
-								steineAufFeldSpeichernP2[z]=12;
+								steineAufFeldSpeichernP2[z]=2;
 								spielsteineP2[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -1631,6 +1652,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+				buttons[2].removeActionListener(buttons[2].getActionListeners()[0]);
 				
 				
 			}
@@ -1660,7 +1682,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP2[z]==j) {
 								
-								steineAufFeldSpeichernP2[z]=12;
+								steineAufFeldSpeichernP2[z]=3;
 								spielsteineP2[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -1677,6 +1699,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+				buttons[3].removeActionListener(buttons[3].getActionListeners()[0]);
 				
 				
 			}
@@ -1707,7 +1730,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP2[z]==j) {
 								
-								steineAufFeldSpeichernP2[z]=12;
+								steineAufFeldSpeichernP2[z]=4;
 								spielsteineP2[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -1724,6 +1747,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+				buttons[4].removeActionListener(buttons[4].getActionListeners()[0]);
 				
 				
 			}
@@ -1753,7 +1777,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP2[z]==j) {
 								
-								steineAufFeldSpeichernP2[z]=12;
+								steineAufFeldSpeichernP2[z]=5;
 								spielsteineP2[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -1770,6 +1794,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+				buttons[5].removeActionListener(buttons[5].getActionListeners()[0]);
 				
 				
 			}
@@ -1799,7 +1824,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP2[z]==j) {
 								
-								steineAufFeldSpeichernP2[z]=12;
+								steineAufFeldSpeichernP2[z]=6;
 								spielsteineP2[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -1816,6 +1841,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+				buttons[6].removeActionListener(buttons[6].getActionListeners()[0]);
 				
 				
 			}
@@ -1845,7 +1871,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP2[z]==j) {
 								
-								steineAufFeldSpeichernP2[z]=12;
+								steineAufFeldSpeichernP2[z]=7;
 								spielsteineP2[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -1862,6 +1888,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(1,steineAufFeldSpeichernP2);
+				buttons[7].removeActionListener(buttons[7].getActionListeners()[0]);
 				
 				
 			}
@@ -1892,7 +1919,7 @@ buttons[12].addActionListener(new ActionListener() {
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP2[z]==j) {
 									
-									steineAufFeldSpeichernP2[z]=12;
+									steineAufFeldSpeichernP2[z]=8;
 									spielsteineP2[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -1909,6 +1936,7 @@ buttons[12].addActionListener(new ActionListener() {
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(1,steineAufFeldSpeichernP2);
+					buttons[8].removeActionListener(buttons[8].getActionListeners()[0]);
 					
 					
 				}
@@ -1938,7 +1966,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP2[z]==j) {
 								
-								steineAufFeldSpeichernP2[z]=12;
+								steineAufFeldSpeichernP2[z]=9;
 								spielsteineP2[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -1955,6 +1983,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(1,steineAufFeldSpeichernP2);
+				buttons[9].removeActionListener(buttons[9].getActionListeners()[0]);
 				
 				
 			}
@@ -1984,7 +2013,7 @@ buttons[12].addActionListener(new ActionListener() {
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP2[z]==j) {
 									
-									steineAufFeldSpeichernP2[z]=12;
+									steineAufFeldSpeichernP2[z]=10;
 									spielsteineP2[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -2001,6 +2030,7 @@ buttons[12].addActionListener(new ActionListener() {
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(1,steineAufFeldSpeichernP2);
+					buttons[10].removeActionListener(buttons[10].getActionListeners()[0]);
 					
 					
 				}
@@ -2030,7 +2060,7 @@ buttons[12].addActionListener(new ActionListener() {
 						for(int z=0;z<12;z++) {
 							if(steineAufFeldSpeichernP2[z]==j) {
 								
-								steineAufFeldSpeichernP2[z]=12;
+								steineAufFeldSpeichernP2[z]=11;
 								spielsteineP2[z].setBounds(355, 357, 200, 200);
 								verschiebenNach[j]=false;	
 								
@@ -2047,6 +2077,7 @@ buttons[12].addActionListener(new ActionListener() {
 				}
 				buttonGedrueckt=0;
 				dieSteuerungen.running(1,steineAufFeldSpeichernP2);
+				buttons[11].removeActionListener(buttons[11].getActionListeners()[0]);
 				
 				
 			}
@@ -2058,7 +2089,6 @@ buttons[12].addActionListener(new ActionListener() {
 	  
 	  buttons[12].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Das ist die Nummer 12");
 	
 				if(buttonGedrueckt==0) {
 					verschiebenNach[12]=true;
@@ -2092,6 +2122,7 @@ buttons[12].addActionListener(new ActionListener() {
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(1,steineAufFeldSpeichernP2);
+					buttons[12].removeActionListener(buttons[12].getActionListeners()[0]);
 					
 					
 				}
@@ -2120,7 +2151,7 @@ buttons[12].addActionListener(new ActionListener() {
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP2[z]==j) {
 									
-									steineAufFeldSpeichernP2[z]=12;
+									steineAufFeldSpeichernP2[z]=13;
 									spielsteineP2[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -2137,6 +2168,7 @@ buttons[12].addActionListener(new ActionListener() {
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(1,steineAufFeldSpeichernP2);
+					buttons[13].removeActionListener(buttons[13].getActionListeners()[0]);
 					
 					
 				}
@@ -2165,7 +2197,7 @@ buttons[12].addActionListener(new ActionListener() {
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP2[z]==j) {
 									
-									steineAufFeldSpeichernP2[z]=12;
+									steineAufFeldSpeichernP2[z]=14;
 									spielsteineP2[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -2182,7 +2214,7 @@ buttons[12].addActionListener(new ActionListener() {
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
-					
+					buttons[14].removeActionListener(buttons[14].getActionListeners()[0]);
 					
 				}
 				buttonGedrueckt++;
@@ -2210,7 +2242,7 @@ buttons[12].addActionListener(new ActionListener() {
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP2[z]==j) {
 									
-									steineAufFeldSpeichernP2[z]=12;
+									steineAufFeldSpeichernP2[z]=15;
 									spielsteineP2[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -2227,7 +2259,7 @@ buttons[12].addActionListener(new ActionListener() {
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
-					
+					buttons[15].removeActionListener(buttons[15].getActionListeners()[0]);
 					
 				}
 				buttonGedrueckt++;
@@ -2255,7 +2287,7 @@ buttons[12].addActionListener(new ActionListener() {
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP2[z]==j) {
 									
-									steineAufFeldSpeichernP2[z]=12;
+									steineAufFeldSpeichernP2[z]=16;
 									spielsteineP2[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -2272,7 +2304,7 @@ buttons[12].addActionListener(new ActionListener() {
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
-					
+					buttons[16].removeActionListener(buttons[16].getActionListeners()[0]);
 					
 				}
 				buttonGedrueckt++;
@@ -2300,7 +2332,7 @@ buttons[12].addActionListener(new ActionListener() {
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP2[z]==j) {
 									
-									steineAufFeldSpeichernP2[z]=12;
+									steineAufFeldSpeichernP2[z]=17;
 									spielsteineP2[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -2317,7 +2349,7 @@ buttons[12].addActionListener(new ActionListener() {
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
-					
+					buttons[17].removeActionListener(buttons[17].getActionListeners()[0]);
 					
 				}
 				buttonGedrueckt++;
@@ -2345,7 +2377,7 @@ buttons[12].addActionListener(new ActionListener() {
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP2[z]==j) {
 									
-									steineAufFeldSpeichernP2[z]=12;
+									steineAufFeldSpeichernP2[z]=18;
 									spielsteineP2[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -2362,7 +2394,7 @@ buttons[12].addActionListener(new ActionListener() {
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
-					
+					buttons[18].removeActionListener(buttons[18].getActionListeners()[0]);
 					
 				}
 				buttonGedrueckt++;
@@ -2390,7 +2422,7 @@ buttons[12].addActionListener(new ActionListener() {
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP2[z]==j) {
 									
-									steineAufFeldSpeichernP2[z]=12;
+									steineAufFeldSpeichernP2[z]=19;
 									spielsteineP2[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -2407,7 +2439,7 @@ buttons[12].addActionListener(new ActionListener() {
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
-					
+					buttons[19].removeActionListener(buttons[19].getActionListeners()[0]);
 					
 				}
 				buttonGedrueckt++;
@@ -2435,7 +2467,7 @@ buttons[12].addActionListener(new ActionListener() {
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP2[z]==j) {
 									
-									steineAufFeldSpeichernP2[z]=12;
+									steineAufFeldSpeichernP2[z]=20;
 									spielsteineP2[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -2452,7 +2484,7 @@ buttons[12].addActionListener(new ActionListener() {
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
-					
+					buttons[20].removeActionListener(buttons[20].getActionListeners()[0]);
 					
 				}
 				buttonGedrueckt++;
@@ -2480,7 +2512,7 @@ buttons[12].addActionListener(new ActionListener() {
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP2[z]==j) {
 									
-									steineAufFeldSpeichernP2[z]=12;
+									steineAufFeldSpeichernP2[z]=21;
 									spielsteineP2[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -2497,6 +2529,7 @@ buttons[12].addActionListener(new ActionListener() {
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+					buttons[21].removeActionListener(buttons[21].getActionListeners()[0]);
 					
 					
 				}
@@ -2525,7 +2558,7 @@ buttons[12].addActionListener(new ActionListener() {
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP2[z]==j) {
 									
-									steineAufFeldSpeichernP2[z]=12;
+									steineAufFeldSpeichernP2[z]=22;
 									spielsteineP2[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -2542,7 +2575,7 @@ buttons[12].addActionListener(new ActionListener() {
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
-					
+					buttons[22].removeActionListener(buttons[22].getActionListeners()[0]);
 					
 				}
 				buttonGedrueckt++;
@@ -2570,7 +2603,7 @@ buttons[12].addActionListener(new ActionListener() {
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP2[z]==j) {
 									
-									steineAufFeldSpeichernP2[z]=12;
+									steineAufFeldSpeichernP2[z]=23;
 									spielsteineP2[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -2587,7 +2620,7 @@ buttons[12].addActionListener(new ActionListener() {
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
-					
+					buttons[23].removeActionListener(buttons[23].getActionListeners()[0]);
 					
 				}
 				buttonGedrueckt++;
@@ -2615,7 +2648,7 @@ buttons[12].addActionListener(new ActionListener() {
 							for(int z=0;z<12;z++) {
 								if(steineAufFeldSpeichernP2[z]==j) {
 									
-									steineAufFeldSpeichernP2[z]=12;
+									steineAufFeldSpeichernP2[z]=24;
 									spielsteineP2[z].setBounds(355, 357, 200, 200);
 									verschiebenNach[j]=false;	
 									
@@ -2632,6 +2665,7 @@ buttons[12].addActionListener(new ActionListener() {
 					}
 					buttonGedrueckt=0;
 					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+					buttons[24].removeActionListener(buttons[24].getActionListeners()[0]);
 					
 					
 				}
