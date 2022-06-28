@@ -29,7 +29,6 @@ public static int random() {
 public void WerIstDran() {
 	
 	aktiverSpieler = random();
-
 	  switch (aktiverSpieler) {
 	    case 1 :
 	      System.out.println("Spieler 1 ist dran");
@@ -41,7 +40,6 @@ public void WerIstDran() {
 	      // Button 13-24 enabln
 	      break;
 	    }
-	  System.out.println("Spielleitung "+aktiverSpieler);
 	  steuerung.getWerDranIst(aktiverSpieler);
 }
 
