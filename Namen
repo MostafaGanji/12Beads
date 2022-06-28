@@ -1,5 +1,6 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -13,18 +14,22 @@ import java.awt.Font;
 import java.awt.*;
 
 public class Namen extends JFrame {
+	GUI dieGUI;
 
 
   
-  public Namen() {
-	  Steuerung dieSteuerung = new Steuerung();
+  public Namen(Steuerung pSteuerung,GUI pGUI) {
+	  dieGUI=pGUI;
+	  
+	  Steuerung dieSteuerung = pSteuerung;
     
     validate();
     repaint();
     JFrame frame =  new JFrame();
+    frame.setResizable(false);
   
     JPanel panel = new JPanel(); 
-    frame.setResizable(false);
+    
     
     frame.setSize(350,350);
     frame.setLocationRelativeTo(null);
@@ -34,7 +39,7 @@ public class Namen extends JFrame {
     int y = frame.getSize().height;
     
     
-    JLabel player1 = new JLabel("player one: ");
+    JLabel player1 = new JLabel("Name P1: ");
     player1.setBounds((int) x*1,(int) (y*0.1), 200, 200);
     
     panel.add(player1);
@@ -46,7 +51,7 @@ public class Namen extends JFrame {
     panel.add(player_one);
     
     
-    JLabel player2 = new JLabel("player two: ");
+    JLabel player2 = new JLabel("Name P2: ");
     player2.setBounds((int) (x*0.4),(int) (y*0.3), 400, 400);
     
     
@@ -62,18 +67,17 @@ public class Namen extends JFrame {
     finish.setBounds((int) (x*0.4),(int) (y*0.3) , 100, 50);
     finish.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+            	
               dieSteuerung.getNamen(player_one.getText(), player_two.getText());
-              this.dispose();
+              dieGUI.zeichneGUI();
+              frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+              
               
               
               
               
             }
 
-			private void dispose() {
-				// TODO Auto-generated method stub
-				
-			}
             });
     
               
