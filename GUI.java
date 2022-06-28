@@ -1,11 +1,15 @@
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.awt.font.*;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.JButton;
 
 public class GUI extends JFrame{
@@ -23,8 +27,11 @@ public class GUI extends JFrame{
   Steuerung dieSteuerungen;
   Spielbrett brett;
   JLabel [] spielerNamen=new JLabel[2];
-  int SteineAufFeldSpeichernP1[]=new int[25];
-  int SteineAufFeldSpeichernP2[]=new int[25];
+  int zwischenSpeicher;
+  int steineAufFeldSpeichernP1[]=new int[25];
+  int steineAufFeldSpeichernP2[]=new int[25];
+  int buttonsAufFeldSpeichernP1[]=new int[12];
+  int buttonsAufFeldSpeichernP2[]=new int[12];
   
   //Knöpfe mit gegnerischen Spielfigur disabeln-->wenn Knopf gedrückt wurde, dann Knöpfe mit eigenen Spielfiguren disabeln.
   //Wenn ein zug gemacht wurde, andere Spieler ist dran
@@ -38,8 +45,8 @@ public class GUI extends JFrame{
       }
     
     for(int z=0;z<12;z++) {
-    	SteineAufFeldSpeichernP1[z]=z;
-    	SteineAufFeldSpeichernP2[z]=z;
+    	steineAufFeldSpeichernP1[z]=z;
+    	steineAufFeldSpeichernP2[z]=z+13;
     }
     
     
@@ -54,7 +61,6 @@ public class GUI extends JFrame{
   
   public void guiWerDranIst(int werIsssstDran) {
 	  werIstDran=werIsssstDran;
-	  System.out.println("GUI "+werIstDran);
 	  
   }
  
@@ -70,6 +76,7 @@ public class GUI extends JFrame{
   public void zeichneGUI() {
     setVisible(true);
     setSize(900,945);
+    setResizable(false);
     setTitle("");
    setLocationRelativeTo(null);
     getContentPane().setLayout(null);
@@ -87,6 +94,10 @@ public class GUI extends JFrame{
   }
   
   public void einzelSpielerModus() {
+   
+	  Progress progress= new Progress();
+    
+	  
     
   }
   
@@ -327,13 +338,13 @@ public class GUI extends JFrame{
       spielBrettLabel = new JLabel(spielBrett);       
       spielBrettLabel.setBounds(-50, -48, 1000, 1000);
       getContentPane().add(spielBrettLabel);
-      
       switch(werIstDran) {
       
-      	case 1: turn1player();
+      
+      	case 1: dieSteuerungen.running(werIstDran,steineAufFeldSpeichernP1);
       			break;
       
-      	case 0: turn2player();
+      	case 0: dieSteuerungen.running(werIstDran,steineAufFeldSpeichernP2);
       			break;
       }
       
@@ -341,6 +352,7 @@ public class GUI extends JFrame{
   }
   
   public void turn1player() {
+	  System.out.println("Button gedrueckt aus p1 "+buttonGedrueckt);
 	  System.out.println("Player 1 Turn aus GUI");
 	  
 	  buttons[0].addActionListener(new ActionListener() {
@@ -349,25 +361,42 @@ public class GUI extends JFrame{
 				if(buttonGedrueckt==0) {
 					verschiebenNach[0]=true;
 					dieSteuerungen.knopfGedruecktFuerBrettP1(0);
-			
-			
-			
+					
 				}
-		
-				if(buttonGedrueckt==1){
+				
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
 							
-							spielsteineP1[j].setBounds(47, 54, 200, 200);
-							verschiebenNach[j]=false;
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP1[z]==j) {
+									
+									steineAufFeldSpeichernP1[z]=12;
+									spielsteineP1[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn2player();
+					dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+					
+					
 				}
 				buttonGedrueckt++;
-		
-		
+			
 			}
 
 		});
@@ -378,23 +407,41 @@ public class GUI extends JFrame{
 				if(buttonGedrueckt==0) {
 					verschiebenNach[1]=true;
 					dieSteuerungen.knopfGedruecktFuerBrettP1(1);
-				
-				
-				
+					
 				}
-			
-				if(buttonGedrueckt==1){
+				
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP1[j].setBounds(215, 60, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP1[z]==j) {
+									
+									steineAufFeldSpeichernP1[z]=12;
+									spielsteineP1[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn2player();
+					dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+					
+					
 				}
 				buttonGedrueckt++;
-			
 			
 			}
 
@@ -402,28 +449,46 @@ public class GUI extends JFrame{
 
 		buttons[2].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				
 				if(buttonGedrueckt==0) {
 					verschiebenNach[2]=true;
 					dieSteuerungen.knopfGedruecktFuerBrettP1(2);
-				
-			
-			
+					
 				}
-		
-				if(buttonGedrueckt==1){
+				
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP1[j].setBounds(380, 60, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP1[z]==j) {
+									
+									steineAufFeldSpeichernP1[z]=12;
+									spielsteineP1[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn2player();
+					dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+					
+					
 				}
 				buttonGedrueckt++;
-		
-		
+			
 			}
 
 		});
@@ -434,24 +499,42 @@ public class GUI extends JFrame{
 				if(buttonGedrueckt==0) {
 					verschiebenNach[3]=true;
 					dieSteuerungen.knopfGedruecktFuerBrettP1(3);
-			
-			
-			
+					
 				}
-		
-				if(buttonGedrueckt==1){
+				
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP1[j].setBounds(547, 60, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP1[z]==j) {
+									
+									steineAufFeldSpeichernP1[z]=12;
+									spielsteineP1[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn2player();
+					dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+					
+					
 				}
 				buttonGedrueckt++;
 			
-		
 			}
 
 		});
@@ -462,24 +545,42 @@ public class GUI extends JFrame{
 				if(buttonGedrueckt==0) {
 					verschiebenNach[4]=true;
 					dieSteuerungen.knopfGedruecktFuerBrettP1(4);
-			
-			
-			
+					
 				}
-		
-				if(buttonGedrueckt==1){
+				
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP1[j].setBounds(715, 60, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP1[z]==j) {
+									
+									steineAufFeldSpeichernP1[z]=12;
+									spielsteineP1[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn2player();
+					dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+					
+					
 				}
 				buttonGedrueckt++;
-		
-		
+			
 			}
 
 		});
@@ -490,24 +591,42 @@ public class GUI extends JFrame{
 				if(buttonGedrueckt==0) {
 					verschiebenNach[5]=true;
 					dieSteuerungen.knopfGedruecktFuerBrettP1(5);
-			
-			
-			
+					
 				}
-		
-				if(buttonGedrueckt==1){
+				
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP1[j].setBounds(49, 220, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP1[z]==j) {
+									
+									steineAufFeldSpeichernP1[z]=12;
+									spielsteineP1[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn2player();
+					dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+					
+					
 				}
 				buttonGedrueckt++;
-		
-		
+			
 			}
 
 		});
@@ -518,24 +637,42 @@ public class GUI extends JFrame{
 				if(buttonGedrueckt==0) {
 					verschiebenNach[6]=true;
 					dieSteuerungen.knopfGedruecktFuerBrettP1(6);
-			
-			
-			
+					
 				}
-		
-				if(buttonGedrueckt==1){
+				
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP1[j].setBounds(215, 227, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP1[z]==j) {
+									
+									steineAufFeldSpeichernP1[z]=12;
+									spielsteineP1[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn2player();
+					dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+					
+					
 				}
 				buttonGedrueckt++;
-		
-		
+			
 			}
 
 		});
@@ -547,23 +684,41 @@ buttons[7].addActionListener(new ActionListener() {
 			verschiebenNach[7]=true;
 			dieSteuerungen.knopfGedruecktFuerBrettP1(7);
 			
-			
-			
 		}
 		
-		if(buttonGedrueckt==1){
+		if(buttonGedrueckt==1) {
+			
 			for(int j=0;j<25;j++) {
+				
+				
+				
 				if(verschiebenNach[j]==true) {
-					spielsteineP1[j].setBounds(380, 230, 200, 200);
-					verschiebenNach[j]=false;
+					
+					for(int z=0;z<12;z++) {
+						if(steineAufFeldSpeichernP1[z]==j) {
+							
+							steineAufFeldSpeichernP1[z]=12;
+							spielsteineP1[z].setBounds(355, 357, 200, 200);
+							verschiebenNach[j]=false;	
+							
+						}
+						
+					}
+					
+				
+					
 				}
+				
+				
+				
 			}
 			buttonGedrueckt=0;
-			turn2player();
+			dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+			
+			
 		}
 		buttonGedrueckt++;
-		
-		
+	
 	}
 
 });
@@ -575,23 +730,41 @@ buttons[8].addActionListener(new ActionListener() {
 			verschiebenNach[8]=true;
 			dieSteuerungen.knopfGedruecktFuerBrettP1(8);
 			
-			
-			
 		}
 		
-		if(buttonGedrueckt==1){
+		if(buttonGedrueckt==1) {
+			
 			for(int j=0;j<25;j++) {
+				
+				
+				
 				if(verschiebenNach[j]==true) {
-					spielsteineP1[j].setBounds(547, 230, 200, 200);
-					verschiebenNach[j]=false;
+					
+					for(int z=0;z<12;z++) {
+						if(steineAufFeldSpeichernP1[z]==j) {
+							
+							steineAufFeldSpeichernP1[z]=12;
+							spielsteineP1[z].setBounds(355, 357, 200, 200);
+							verschiebenNach[j]=false;	
+							
+						}
+						
+					}
+					
+				
+					
 				}
+				
+				
+				
 			}
 			buttonGedrueckt=0;
-			turn2player();;
+			dieSteuerungen.running(2,steineAufFeldSpeichernP1);
+			
+			
 		}
 		buttonGedrueckt++;
-		
-		
+	
 	}
 
 });
@@ -603,22 +776,41 @@ buttons[9].addActionListener(new ActionListener() {
 			verschiebenNach[9]=true;
 			dieSteuerungen.knopfGedruecktFuerBrettP1(9);
 			
-			
 		}
 		
-		if(buttonGedrueckt==1){
+		if(buttonGedrueckt==1) {
+			
 			for(int j=0;j<25;j++) {
+				
+				
+				
 				if(verschiebenNach[j]==true) {
-					spielsteineP1[j].setBounds(715, 230, 200, 200);
-					verschiebenNach[j]=false;
+					
+					for(int z=0;z<12;z++) {
+						if(steineAufFeldSpeichernP1[z]==j) {
+							
+							steineAufFeldSpeichernP1[z]=12;
+							spielsteineP1[z].setBounds(355, 357, 200, 200);
+							verschiebenNach[j]=false;	
+							
+						}
+						
+					}
+					
+				
+					
 				}
+				
+				
+				
 			}
 			buttonGedrueckt=0;
-			turn2player();
+			dieSteuerungen.running(2,steineAufFeldSpeichernP1);
+			
+			
 		}
 		buttonGedrueckt++;
-		
-		
+	
 	}
 
 });
@@ -630,22 +822,41 @@ buttons[10].addActionListener(new ActionListener() {
 			verschiebenNach[10]=true;
 			dieSteuerungen.knopfGedruecktFuerBrettP1(10);
 			
-			
 		}
 		
-		if(buttonGedrueckt==1){
+		if(buttonGedrueckt==1) {
+			
 			for(int j=0;j<25;j++) {
+				
+				
+				
 				if(verschiebenNach[j]==true) {
-					spielsteineP1[j].setBounds(49, 385, 200, 200);
-					verschiebenNach[j]=false;
+					
+					for(int z=0;z<12;z++) {
+						if(steineAufFeldSpeichernP1[z]==j) {
+							
+							steineAufFeldSpeichernP1[z]=12;
+							spielsteineP1[z].setBounds(355, 357, 200, 200);
+							verschiebenNach[j]=false;	
+							
+						}
+						
+					}
+					
+				
+					
 				}
+				
+				
+				
 			}
 			buttonGedrueckt=0;
-			turn2player();
+			dieSteuerungen.running(2,steineAufFeldSpeichernP1);
+			
+			
 		}
 		buttonGedrueckt++;
-		
-		
+	
 	}
 
 });
@@ -657,53 +868,88 @@ buttons[11].addActionListener(new ActionListener() {
 			verschiebenNach[11]=true;
 			dieSteuerungen.knopfGedruecktFuerBrettP1(11);
 			
-			
-			
 		}
 		
-		if(buttonGedrueckt==1){
+		if(buttonGedrueckt==1) {
+			
 			for(int j=0;j<25;j++) {
+				
+				
+				
 				if(verschiebenNach[j]==true) {
-					spielsteineP1[j].setBounds(215, 390, 200, 200);
-					verschiebenNach[j]=false;
+					
+					for(int z=0;z<12;z++) {
+						if(steineAufFeldSpeichernP1[z]==j) {
+							
+							steineAufFeldSpeichernP1[z]=12;
+							spielsteineP1[z].setBounds(355, 357, 200, 200);
+							verschiebenNach[j]=false;	
+							
+						}
+						
+					}
+					
+				
+					
 				}
+				
+				
+				
 			}
 			buttonGedrueckt=0;
-			turn2player();
+			dieSteuerungen.running(2,steineAufFeldSpeichernP1);
+			
+			
 		}
 		buttonGedrueckt++;
-		
-		
+	
 	}
 
 });
 
 buttons[12].addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
+			System.out.println("Das ist die Nummer 12");
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[12]=true;
-				
 				dieSteuerungen.knopfGedruecktFuerBrettP1(12);
-				System.out.println("Knopf 12 wurde gedrüctk");
-				
-				
 				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP1[j].setBounds(382, 392, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP1[z]==j) {
+								
+								steineAufFeldSpeichernP1[z]=12;
+								spielsteineP1[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn2player();
+				dieSteuerungen.running(2,steineAufFeldSpeichernP1);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
 		}
 
 	});
@@ -712,27 +958,46 @@ buttons[12].addActionListener(new ActionListener() {
 
 			if(buttonGedrueckt==0) {
 				verschiebenNach[13]=true;
-				
 				dieSteuerungen.knopfGedruecktFuerBrettP1(13);
-				System.out.println("Knopf 13 wurde gedrüctk");
-				
-				
 				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP1[j].setBounds(520, 357, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP1[z]==j) {
+								for(int l=0;l<12;l++) {
+									System.out.println("Button 13---"+steineAufFeldSpeichernP1[l]);
+								}
+								
+								steineAufFeldSpeichernP1[z]=12;
+								spielsteineP1[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn2player();
+				dieSteuerungen.running(2,steineAufFeldSpeichernP1);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
 		}
 
 	});
@@ -743,23 +1008,41 @@ buttons[12].addActionListener(new ActionListener() {
 				verschiebenNach[14]=true;
 				dieSteuerungen.knopfGedruecktFuerBrettP1(14);
 				
-				
-				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP1[j].setBounds(682, 357, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP1[z]==j) {
+								
+								steineAufFeldSpeichernP1[z]=12;
+								spielsteineP1[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn2player();
+				dieSteuerungen.running(2,steineAufFeldSpeichernP1);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
 		}
 
 	});
@@ -770,23 +1053,41 @@ buttons[12].addActionListener(new ActionListener() {
 				verschiebenNach[15]=true;
 				dieSteuerungen.knopfGedruecktFuerBrettP1(15);
 				
-				
-				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP1[j].setBounds(23, 512, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP1[z]==j) {
+								
+								steineAufFeldSpeichernP1[z]=12;
+								spielsteineP1[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn2player();
+				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
 		}
 
 	});
@@ -797,23 +1098,40 @@ buttons[12].addActionListener(new ActionListener() {
 				verschiebenNach[16]=true;
 				dieSteuerungen.knopfGedruecktFuerBrettP1(16);
 				
-				
-				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP1[j].setBounds(188, 520, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP1[z]==j) {
+								
+								steineAufFeldSpeichernP1[z]=12;
+								spielsteineP1[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn2player();
+				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
 		}
 
 	});
@@ -824,23 +1142,41 @@ buttons[12].addActionListener(new ActionListener() {
 				verschiebenNach[17]=true;
 				dieSteuerungen.knopfGedruecktFuerBrettP1(17);
 				
-				
-				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP1[j].setBounds(352, 520, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP1[z]==j) {
+								
+								steineAufFeldSpeichernP1[z]=12;
+								spielsteineP1[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn2player();
+				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
 		}
 
 	});
@@ -851,23 +1187,41 @@ buttons[12].addActionListener(new ActionListener() {
 				verschiebenNach[18]=true;
 				dieSteuerungen.knopfGedruecktFuerBrettP1(18);
 				
-				
-				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP1[j].setBounds(517, 520, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP1[z]==j) {
+								
+								steineAufFeldSpeichernP1[z]=12;
+								spielsteineP1[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn2player();
+				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
 		}
 
 	});
@@ -878,23 +1232,41 @@ buttons[12].addActionListener(new ActionListener() {
 				verschiebenNach[19]=true;
 				dieSteuerungen.knopfGedruecktFuerBrettP1(19);
 				
-				
-				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP1[j].setBounds(686, 520, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP1[z]==j) {
+								
+								steineAufFeldSpeichernP1[z]=12;
+								spielsteineP1[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn2player();
+				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
 		}
 
 	});
@@ -902,26 +1274,44 @@ buttons[12].addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 
 			if(buttonGedrueckt==0) {
-				verschiebenNach[20]=true;
-				dieSteuerungen.knopfGedruecktFuerBrettP1(20);
-				
-				
+				verschiebenNach[22]=true;
+				dieSteuerungen.knopfGedruecktFuerBrettP1(22);
 				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP1[j].setBounds(25, 665, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP1[z]==j) {
+								
+								steineAufFeldSpeichernP1[z]=12;
+								spielsteineP1[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn2player();
+				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
 		}
 
 	});
@@ -932,23 +1322,41 @@ buttons[12].addActionListener(new ActionListener() {
 				verschiebenNach[21]=true;
 				dieSteuerungen.knopfGedruecktFuerBrettP1(21);
 				
-				
-				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP1[j].setBounds(188, 677, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP1[z]==j) {
+								
+								steineAufFeldSpeichernP1[z]=12;
+								spielsteineP1[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn2player();
+				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
 		}
 
 	});
@@ -959,23 +1367,41 @@ buttons[12].addActionListener(new ActionListener() {
 				verschiebenNach[22]=true;
 				dieSteuerungen.knopfGedruecktFuerBrettP1(22);
 				
-				
-				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP1[j].setBounds(352, 675, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP1[z]==j) {
+								
+								steineAufFeldSpeichernP1[z]=12;
+								spielsteineP1[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn2player();
+				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
 		}
 
 	});
@@ -986,21 +1412,41 @@ buttons[12].addActionListener(new ActionListener() {
 				verschiebenNach[23]=true;
 				dieSteuerungen.knopfGedruecktFuerBrettP1(23);
 				
-				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP1[j].setBounds(517, 675, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP1[z]==j) {
+								
+								steineAufFeldSpeichernP1[z]=12;
+								spielsteineP1[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn2player();
+				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				
+				
 			}
 			buttonGedrueckt++;
-			
+		
 			
 		}
 
@@ -1012,23 +1458,41 @@ buttons[12].addActionListener(new ActionListener() {
 				verschiebenNach[24]=true;
 				dieSteuerungen.knopfGedruecktFuerBrettP1(24);
 				
-				
-				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP1[j].setBounds(680, 675, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP1[z]==j) {
+								
+								steineAufFeldSpeichernP1[z]=12;
+								spielsteineP1[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn2player();
+				dieSteuerungen.running(2,steineAufFeldSpeichernP2);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
 		}
 
 	});
@@ -1036,31 +1500,50 @@ buttons[12].addActionListener(new ActionListener() {
   }
   
   public void turn2player() {
+	  System.out.println("Button gedrueckt aus p2 "+buttonGedrueckt);
 	  System.out.println("Player 2 Turn aus GUI");
       buttons[0].addActionListener(new ActionListener() {
       	public void actionPerformed(ActionEvent e) {
 
-			if(buttonGedrueckt==0) {
+      		if(buttonGedrueckt==0) {
 				verschiebenNach[0]=true;
 				dieSteuerungen.knopfGedruecktFuerBrettP2(0);
 				
-				
-				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP2[j].setBounds(47, 54, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP2[z]==j) {
+								
+								steineAufFeldSpeichernP2[z]=12;
+								spielsteineP2[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn1player();
+				dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
 		}
 
 	});
@@ -1072,23 +1555,41 @@ buttons[12].addActionListener(new ActionListener() {
 					verschiebenNach[1]=true;
 					dieSteuerungen.knopfGedruecktFuerBrettP2(1);
 					
-					
-					
 				}
 				
-				if(buttonGedrueckt==1){
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP2[j].setBounds(215, 60, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP2[z]==j) {
+									
+									steineAufFeldSpeichernP2[z]=12;
+									spielsteineP2[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn1player();
+					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+					
+					
 				}
 				buttonGedrueckt++;
-				
-				
+			
 			}
 
 		});
@@ -1100,23 +1601,41 @@ buttons[12].addActionListener(new ActionListener() {
 				verschiebenNach[2]=true;
 				dieSteuerungen.knopfGedruecktFuerBrettP2(2);
 				
-				
-				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP2[j].setBounds(380, 60, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP2[z]==j) {
+								
+								steineAufFeldSpeichernP2[z]=12;
+								spielsteineP2[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn1player();
+				dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
 		}
 
 	});
@@ -1128,22 +1647,41 @@ buttons[12].addActionListener(new ActionListener() {
 				verschiebenNach[3]=true;
 				dieSteuerungen.knopfGedruecktFuerBrettP2(3);
 				
-				
-				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP2[j].setBounds(547, 60, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP2[z]==j) {
+								
+								steineAufFeldSpeichernP2[z]=12;
+								spielsteineP2[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn1player();
+				dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+				
+				
 			}
 			buttonGedrueckt++;
-			
+		
 			
 		}
 
@@ -1156,23 +1694,41 @@ buttons[12].addActionListener(new ActionListener() {
 				verschiebenNach[4]=true;
 				dieSteuerungen.knopfGedruecktFuerBrettP2(4);
 				
-				
-				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP2[j].setBounds(715, 60, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP2[z]==j) {
+								
+								steineAufFeldSpeichernP2[z]=12;
+								spielsteineP2[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn1player();
+				dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
 		}
 
 	});
@@ -1184,23 +1740,41 @@ buttons[12].addActionListener(new ActionListener() {
 				verschiebenNach[5]=true;
 				dieSteuerungen.knopfGedruecktFuerBrettP2(5);
 				
-				
-				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP2[j].setBounds(49, 220, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP2[z]==j) {
+								
+								steineAufFeldSpeichernP2[z]=12;
+								spielsteineP2[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn1player();
+				dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
 		}
 
 	});
@@ -1212,23 +1786,41 @@ buttons[12].addActionListener(new ActionListener() {
 				verschiebenNach[6]=true;
 				dieSteuerungen.knopfGedruecktFuerBrettP2(6);
 				
-				
-				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP2[j].setBounds(215, 227, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP2[z]==j) {
+								
+								steineAufFeldSpeichernP2[z]=12;
+								spielsteineP2[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn1player();
+				dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
 		}
 
 	});
@@ -1240,54 +1832,91 @@ buttons[12].addActionListener(new ActionListener() {
 				verschiebenNach[7]=true;
 				dieSteuerungen.knopfGedruecktFuerBrettP2(7);
 				
-				
-				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP2[j].setBounds(380, 230, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP2[z]==j) {
+								
+								steineAufFeldSpeichernP2[z]=12;
+								spielsteineP2[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn1player();
+				dieSteuerungen.running(1,steineAufFeldSpeichernP2);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
+		
 		}
 
 	});
 	  
-	  buttons[8].addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
+	  buttons[9].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 
-			if(buttonGedrueckt==0) {
-				verschiebenNach[8]=true;
-				dieSteuerungen.knopfGedruecktFuerBrettP2(8);
-				
-				
-				
-			}
-			
-			if(buttonGedrueckt==1){
-				for(int j=0;j<25;j++) {
-					if(verschiebenNach[j]==true) {
-						spielsteineP2[j].setBounds(547, 230, 200, 200);
-						verschiebenNach[j]=false;
-					}
+				if(buttonGedrueckt==0) {
+					verschiebenNach[8]=true;
+					dieSteuerungen.knopfGedruecktFuerBrettP2(8);
+					
 				}
-				buttonGedrueckt=0;
-				turn1player();
+				
+				if(buttonGedrueckt==1) {
+					
+					for(int j=0;j<25;j++) {
+						
+						
+						
+						if(verschiebenNach[j]==true) {
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP2[z]==j) {
+									
+									steineAufFeldSpeichernP2[z]=12;
+									spielsteineP2[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
+						}
+						
+						
+						
+					}
+					buttonGedrueckt=0;
+					dieSteuerungen.running(1,steineAufFeldSpeichernP2);
+					
+					
+				}
+				buttonGedrueckt++;
+			
 			}
-			buttonGedrueckt++;
-			
-			
-		}
 
-	});
+		});
 	  
 	  buttons[9].addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
@@ -1296,53 +1925,90 @@ buttons[12].addActionListener(new ActionListener() {
 				verschiebenNach[9]=true;
 				dieSteuerungen.knopfGedruecktFuerBrettP2(9);
 				
-				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP2[j].setBounds(715, 230, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP2[z]==j) {
+								
+								steineAufFeldSpeichernP2[z]=12;
+								spielsteineP2[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn1player();
+				dieSteuerungen.running(1,steineAufFeldSpeichernP2);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
 		}
 
 	});
 	  
 	  buttons[10].addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {
 
-			if(buttonGedrueckt==0) {
-				verschiebenNach[10]=true;
-				dieSteuerungen.knopfGedruecktFuerBrettP2(10);
-				
-				
-				
-			}
-			
-			if(buttonGedrueckt==1){
-				for(int j=0;j<25;j++) {
-					if(verschiebenNach[j]==true) {
-						spielsteineP2[j].setBounds(49, 385, 200, 200);
-						verschiebenNach[j]=false;
-					}
+				if(buttonGedrueckt==0) {
+					verschiebenNach[10]=true;
+					dieSteuerungen.knopfGedruecktFuerBrettP2(10);
+					
 				}
-				buttonGedrueckt=0;
-				turn1player();
+				
+				if(buttonGedrueckt==1) {
+					
+					for(int j=0;j<25;j++) {
+						
+						
+						
+						if(verschiebenNach[j]==true) {
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP2[z]==j) {
+									
+									steineAufFeldSpeichernP2[z]=12;
+									spielsteineP2[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
+						}
+						
+						
+						
+					}
+					buttonGedrueckt=0;
+					dieSteuerungen.running(1,steineAufFeldSpeichernP2);
+					
+					
+				}
+				buttonGedrueckt++;
+			
 			}
-			buttonGedrueckt++;
-			
-			
-		}
 
-	});
+		});
 	  
 	  buttons[11].addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
@@ -1351,51 +2017,86 @@ buttons[12].addActionListener(new ActionListener() {
 				verschiebenNach[11]=true;
 				dieSteuerungen.knopfGedruecktFuerBrettP2(11);
 				
-				
-				
 			}
 			
-			if(buttonGedrueckt==1){
+			if(buttonGedrueckt==1) {
+				
 				for(int j=0;j<25;j++) {
+					
+					
+					
 					if(verschiebenNach[j]==true) {
-						spielsteineP2[j].setBounds(215, 390, 200, 200);
-						verschiebenNach[j]=false;
+						
+						for(int z=0;z<12;z++) {
+							if(steineAufFeldSpeichernP2[z]==j) {
+								
+								steineAufFeldSpeichernP2[z]=12;
+								spielsteineP2[z].setBounds(355, 357, 200, 200);
+								verschiebenNach[j]=false;	
+								
+							}
+							
+						}
+						
+					
+						
 					}
+					
+					
+					
 				}
 				buttonGedrueckt=0;
-				turn1player();
+				dieSteuerungen.running(1,steineAufFeldSpeichernP2);
+				
+				
 			}
 			buttonGedrueckt++;
-			
-			
+		
 		}
 
 	});
 	  
 	  buttons[12].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Das ist die Nummer 12");
 	
 				if(buttonGedrueckt==0) {
 					verschiebenNach[12]=true;
-					System.out.println("Knopf 12 wurde gedrueckt");
 					dieSteuerungen.knopfGedruecktFuerBrettP2(12);
 					
-					
 				}
 				
-				if(buttonGedrueckt==1){
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP2[j].setBounds(520, 357, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP2[z]==j) {
+									steineAufFeldSpeichernP2[z]=12;
+									spielsteineP2[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn1player();
+					dieSteuerungen.running(1,steineAufFeldSpeichernP2);
+					
+					
 				}
 				buttonGedrueckt++;
-				
-				
+			
 			}
 
 		});
@@ -1404,27 +2105,43 @@ buttons[12].addActionListener(new ActionListener() {
 	
 				if(buttonGedrueckt==0) {
 					verschiebenNach[13]=true;
-					
 					dieSteuerungen.knopfGedruecktFuerBrettP2(13);
-					System.out.println("Knopf 12 wurde gedrüctk");
-					
-					
 					
 				}
 				
-				if(buttonGedrueckt==1){
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP2[j].setBounds(520, 357, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP2[z]==j) {
+									
+									steineAufFeldSpeichernP2[z]=12;
+									spielsteineP2[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn1player();
+					dieSteuerungen.running(1,steineAufFeldSpeichernP2);
+					
+					
 				}
 				buttonGedrueckt++;
-				
-				
+			
 			}
 
 		});
@@ -1435,22 +2152,41 @@ buttons[12].addActionListener(new ActionListener() {
 					verschiebenNach[14]=true;
 					dieSteuerungen.knopfGedruecktFuerBrettP2(14);
 					
-					
 				}
 				
-				if(buttonGedrueckt==1){
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP2[j].setBounds(682, 357, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP2[z]==j) {
+									
+									steineAufFeldSpeichernP2[z]=12;
+									spielsteineP2[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn1player();
+					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+					
+					
 				}
 				buttonGedrueckt++;
-				
-				
+			
 			}
 
 		});
@@ -1461,23 +2197,41 @@ buttons[12].addActionListener(new ActionListener() {
 					verschiebenNach[15]=true;
 					dieSteuerungen.knopfGedruecktFuerBrettP2(15);
 					
-					
-					
 				}
 				
-				if(buttonGedrueckt==1){
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP2[j].setBounds(23, 512, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP2[z]==j) {
+									
+									steineAufFeldSpeichernP2[z]=12;
+									spielsteineP2[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn1player();
+					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+					
+					
 				}
 				buttonGedrueckt++;
-				
-				
+			
 			}
 
 		});
@@ -1488,23 +2242,41 @@ buttons[12].addActionListener(new ActionListener() {
 					verschiebenNach[16]=true;
 					dieSteuerungen.knopfGedruecktFuerBrettP2(16);
 					
-					
-					
 				}
 				
-				if(buttonGedrueckt==1){
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP2[j].setBounds(188, 520, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP2[z]==j) {
+									
+									steineAufFeldSpeichernP2[z]=12;
+									spielsteineP2[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn1player();
+					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+					
+					
 				}
 				buttonGedrueckt++;
-				
-				
+			
 			}
 
 		});
@@ -1515,22 +2287,41 @@ buttons[12].addActionListener(new ActionListener() {
 					verschiebenNach[17]=true;
 					dieSteuerungen.knopfGedruecktFuerBrettP2(17);
 					
-					
 				}
 				
-				if(buttonGedrueckt==1){
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP2[j].setBounds(352, 520, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP2[z]==j) {
+									
+									steineAufFeldSpeichernP2[z]=12;
+									spielsteineP2[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn1player();
+					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+					
+					
 				}
 				buttonGedrueckt++;
-				
-				
+			
 			}
 
 		});
@@ -1541,23 +2332,41 @@ buttons[12].addActionListener(new ActionListener() {
 					verschiebenNach[18]=true;
 					dieSteuerungen.knopfGedruecktFuerBrettP2(18);
 					
-					
-					
 				}
 				
-				if(buttonGedrueckt==1){
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP2[j].setBounds(517, 520, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP2[z]==j) {
+									
+									steineAufFeldSpeichernP2[z]=12;
+									spielsteineP2[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn1player();
+					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+					
+					
 				}
 				buttonGedrueckt++;
-				
-				
+			
 			}
 
 		});
@@ -1568,23 +2377,41 @@ buttons[12].addActionListener(new ActionListener() {
 					verschiebenNach[19]=true;
 					dieSteuerungen.knopfGedruecktFuerBrettP2(19);
 					
-					
-					
 				}
 				
-				if(buttonGedrueckt==1){
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP2[j].setBounds(686, 520, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP2[z]==j) {
+									
+									steineAufFeldSpeichernP2[z]=12;
+									spielsteineP2[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn1player();
+					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+					
+					
 				}
 				buttonGedrueckt++;
-				
-				
+			
 			}
 
 		});
@@ -1595,22 +2422,41 @@ buttons[12].addActionListener(new ActionListener() {
 					verschiebenNach[20]=true;
 					dieSteuerungen.knopfGedruecktFuerBrettP2(20);
 					
-					
 				}
 				
-				if(buttonGedrueckt==1){
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP2[j].setBounds(25, 665, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP2[z]==j) {
+									
+									steineAufFeldSpeichernP2[z]=12;
+									spielsteineP2[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn1player();
+					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+					
+					
 				}
 				buttonGedrueckt++;
-				
-				
+			
 			}
 
 		});
@@ -1621,22 +2467,41 @@ buttons[12].addActionListener(new ActionListener() {
 					verschiebenNach[21]=true;
 					dieSteuerungen.knopfGedruecktFuerBrettP2(21);
 					
-					
 				}
 				
-				if(buttonGedrueckt==1){
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP2[j].setBounds(188, 677, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP2[z]==j) {
+									
+									steineAufFeldSpeichernP2[z]=12;
+									spielsteineP2[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn1player();
+					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+					
+					
 				}
 				buttonGedrueckt++;
-				
-				
+			
 			}
 
 		});
@@ -1647,23 +2512,41 @@ buttons[12].addActionListener(new ActionListener() {
 					verschiebenNach[22]=true;
 					dieSteuerungen.knopfGedruecktFuerBrettP2(22);
 					
-					
-					
 				}
 				
-				if(buttonGedrueckt==1){
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP2[j].setBounds(352, 675, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP2[z]==j) {
+									
+									steineAufFeldSpeichernP2[z]=12;
+									spielsteineP2[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn1player();
+					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+					
+					
 				}
 				buttonGedrueckt++;
-				
-				
+			
 			}
 
 		});
@@ -1674,23 +2557,41 @@ buttons[12].addActionListener(new ActionListener() {
 					verschiebenNach[23]=true;
 					dieSteuerungen.knopfGedruecktFuerBrettP2(23);
 					
-					
-					
 				}
 				
-				if(buttonGedrueckt==1){
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP2[j].setBounds(517, 675, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP2[z]==j) {
+									
+									steineAufFeldSpeichernP2[z]=12;
+									spielsteineP2[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn1player();
+					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+					
+					
 				}
 				buttonGedrueckt++;
-				
-				
+			
 			}
 
 		});
@@ -1701,26 +2602,41 @@ buttons[12].addActionListener(new ActionListener() {
 					verschiebenNach[24]=true;
 					dieSteuerungen.knopfGedruecktFuerBrettP2(24);
 					
-					
-					
 				}
 				
-				if(buttonGedrueckt==1){
+				if(buttonGedrueckt==1) {
+					
 					for(int j=0;j<25;j++) {
+						
+						
+						
 						if(verschiebenNach[j]==true) {
-							spielsteineP2[j].setBounds(680, 675, 200, 200);
-							verschiebenNach[j]=false;
+							
+							for(int z=0;z<12;z++) {
+								if(steineAufFeldSpeichernP2[z]==j) {
+									
+									steineAufFeldSpeichernP2[z]=12;
+									spielsteineP2[z].setBounds(355, 357, 200, 200);
+									verschiebenNach[j]=false;	
+									
+								}
+								
+							}
+							
+						
+							
 						}
+						
+						
+						
 					}
 					buttonGedrueckt=0;
-					turn1player();
-			
+					dieSteuerungen.running(1,steineAufFeldSpeichernP1);
+					
+					
 				}
 				buttonGedrueckt++;
-				
-				
-				
-				
+			
 			}
 
 		});	       
